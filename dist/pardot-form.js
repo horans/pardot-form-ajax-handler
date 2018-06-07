@@ -70,7 +70,7 @@ pfah.form = {
 
 // callback
 pfah.callback = function (res) {
-  $('#' + pfah.form.id).trigger('pfah.callback', [res.result, pfah.form.id])
+  $('#' + pfah.form.id).trigger('pfah.callback', [pfah.form.id, res.result])
   window.console.log('[pfah] callback ' + res.result)
 }
 
@@ -82,24 +82,26 @@ $(function () {
   if ($('.pfah-popup').length > 0) pfah.init.vendor()
 
   // submit form
-  $('body').on('submit', '.pfah-form', function (e) {
+  $('body').on('submit', '.pfah-wrapper', function (e) {
     e.preventDefault()
     if (!pfah.form.load) {
       pfah.form.load = true
-      var t = $(this)
-      pfah.form.id = t.closest('.pfah-wrapper').attr('id')
-      t.find('[type="submit"]').attr('disabled', 'disabled')
+      var f = $(this).find('.pfah-form')
+      pfah.form.id = $(this).attr('id')
+      f.find('[type="submit"]').attr('disabled', 'disabled')
+      window.console.log('[pfah] form submit')
+      $(this).trigger('pfah.form.submit', pfah.form.id)
       $.ajax({
-        url: t.attr('action'),
+        url: f.attr('action'),
         method: 'POST',
-        data: t.serialize(),
+        data: f.serialize(),
         dataType: 'jsonp'
       })
     }
   })
 
   // callback handler
-  $('body').on('pfah.callback', function (e, result, id) {
+  $('body').on('pfah.callback', function (e, id, result) {
     if (result === 'done' && $('#' + id).data('state') !== 'no') window.localStorage.setItem(pfah.form.id, result)
     $('#' + pfah.form.id).addClass('pfah-result-' + result)
       .find('[type="submit"]').removeAttr('disabled')
