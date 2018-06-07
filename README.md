@@ -2,6 +2,10 @@
 
 "Pardot Form AJAX Handler", or "PFAH" in short, will help to you setup an `AJAX` submission for [Pardot](https://www.pardot.com/) forms, which were designed to submit with `POST` in `iframe`. With `JSONP`, we can even handle the result from Pardot's redirect.
 
+## Features
+
+_(TO BE DONE)_
+
 ## Install
 
 1. Extract and upload all the files in `dist` folder to your server.
@@ -82,14 +86,21 @@ PFAH allow you to override default style by adding your own `css` file.
     * e.g., `//sample.com/pardot-form/pardot-form-mytheme01.css`
 2. add `data-style="mytheme01"` to `.pfah-wrapper`.
 
-## About
+## More
+
+### References
+
+* JS Path: [stackoverflow.com/questions/2255689/](https://stackoverflow.com/questions/2255689/)
+* JSONP: [stackoverflow.com/questions/47047487/](https://stackoverflow.com/questions/47047487/)
+
+### Tools
 
 * Dependency: [jQuery](https://github.com/jquery/jquery)
 * Vendor: [bPopup](https://github.com/dinbror/bpopup)
 * JS linter: [standard](https://github.com/standard/standard)
 * CSS linter: [CSSLint](https://github.com/CSSLint/csslint)
 
-## References
+### Change logs
 
-* [stackoverflow.com/questions/2255689/](https://stackoverflow.com/questions/2255689/)
-* [stackoverflow.com/questions/47047487/](https://stackoverflow.com/questions/47047487/)
+* build 180607
+    * initial release
