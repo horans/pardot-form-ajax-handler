@@ -38,9 +38,9 @@ Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are good to go!
       </aside>
     </div>
 
-### Demos
+### Samples
 
-(TO BE DONE)
+_(TO BE DONE)_
 
 ### Notices
 
@@ -56,7 +56,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 
 ### Popup
 
-(TO BE DONE)
+_(TO BE DONE)_
 
 ### Functions
 
@@ -78,8 +78,9 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 PFAH allow you to override default style by adding your own `css` file.
 
-1. add `pardot-form-mytheme01.css` to `//sample.com/pardot-form/`.
-2. add `data-style="mytheme01"` to `pfah-wrapper`.
+1. upload `pardot-form-mytheme01.css` to same folder you put PFAH.
+    * e.g., `//sample.com/pardot-form/pardot-form-mytheme01.css`
+2. add `data-style="mytheme01"` to `.pfah-wrapper`.
 
 ## About
 
@@ -87,3 +88,8 @@ PFAH allow you to override default style by adding your own `css` file.
 * Vendor: [bPopup](https://github.com/dinbror/bpopup)
 * JS linter: [standard](https://github.com/standard/standard)
 * CSS linter: [CSSLint](https://github.com/CSSLint/csslint)
+
+## References
+
+* [stackoverflow.com/questions/2255689/](https://stackoverflow.com/questions/2255689/)
+* [stackoverflow.com/questions/47047487/](https://stackoverflow.com/questions/47047487/)
