@@ -49,7 +49,7 @@ pfah.init = {
     $('.pfah-wrapper').each(function () {
       var p = $(this).find('.pfah-form').attr('action')
       if (p.indexOf('go.pardot.com') < 0) {
-        $(this).trigger('pfah.form.error')
+        $(this).trigger('pfah.notpardot')
           .find('[type="submit"]').attr('disabled', 'disabled')
         window.console.log('[pfah] not a pardot form')
       } else {
@@ -90,7 +90,7 @@ $(function () {
       pfah.form.id = $(this).attr('id')
       f.find('[type="submit"]').attr('disabled', 'disabled')
       window.console.log('[pfah] form submit')
-      $(this).trigger('pfah.form.submit', pfah.form.id)
+      $(this).trigger('pfah.submit', pfah.form.id)
       $.ajax({
         url: f.attr('action'),
         method: 'POST',

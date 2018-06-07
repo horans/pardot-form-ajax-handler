@@ -74,8 +74,8 @@ PFAH will initialize automatically when `DOM` is ready, however you can manually
 
 PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
-* `pfah.form.error`: a form `action` was not a proper Pardot link.
-* `pfah.form.submit`: form submitted with current `.pfah-wrapper` __id__.
+* `pfah.notpardot`: a form `action` was not a proper Pardot iframe emebed link.
+* `pfah.submit`: a form was submitted to Pardot with `.pfah-wrapper` __id__.
 * `pfah.callback`: received result from Pardot with `.pfah-wrapper` __id__ and "__done__/__error__" as extra parameters.
 
 ### Themes
