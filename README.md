@@ -54,14 +54,14 @@ _(TO BE DONE)_
 Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`.
 
 * __`data-state="done"`__: PFAH will save "done/error" state into `localStorage` with `[.pfah-wrapper]` ID.
-    * This attribute can be either "__done__", "__error__" or "__all__".
-    * With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
+  + This attribute can be either "__done__", "__error__" or "__all__".
+  + With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
 * __`data-source="source"`__: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
-    * This attribute can be customized according to your choice, but we suggest to use "__source__" or "__referrer__".
-    * You have to add `source` or your customized field to Pardot form to make it work.
-    * You have to make sure you haven't use the same name somewhere else in form.
+  + This attribute can be customized according to your choice, but we suggest to use "__source__" or "__referrer__".
+  + You have to add `source` or your customized field to Pardot form to make it work.
+  + You have to make sure you haven't use the same name somewhere else in form.
 * __`data-style="no"`__: Use this option to complete disable the style of PFAH by not load css file at all.
-    * This option will disable theme as well.
+  + This option will disable theme as well.
 
 ### Popup
 
@@ -70,11 +70,14 @@ _(TO BE DONE)_
 ### Functions
 
 PFAH will initialize automatically when `DOM` is ready,  
-however you can manually perform them if forms are loaded into page asynchronously.
+however you can manually perform it if forms are loaded into page asynchronously.
 
-* __`pfah.init.form()`__: Check action url, generate id and show stored state.
-* __`pfah.init.style()`__: Add default form style and extra theme.
-* __`pfah.init.vendor()`__: Load vendor js if the form is show on popup.
+* __`pfah.init()`__:
+  + Load default form style (and extra theme).
+  + Check form action url.
+  + Generate ID.
+  + Show stored state.
+  + Load vendor js if the form is show on popup.
 
 ### Events
 
@@ -111,8 +114,9 @@ Different forms can use their own themes even they are on the same page.
 ### Change logs
 
 * build 180608
-    * allow source track
-    * allow style disable
+  + allow source track
+  + allow style disable
+  + unify init function
 
 * build 180607
-    * initial release
+  + initial release

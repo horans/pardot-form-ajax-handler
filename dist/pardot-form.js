@@ -34,26 +34,20 @@ pfah.asset = function (type, asset) {
 }
 
 // initialize
-pfah.init = {
-  vendor: function () {
-    // popup
-    pfah.asset('vendor', 'jquery.bpopup')
-  },
-  style: function () {
-    if ($('.pfah-wrapper').data('style').toLowerCase() !== 'no') {
-      // default style
-      pfah.asset('style', 'pfah')
+pfah.init = function () {
+  if ($('.pfah-wrapper').length > 0) {
+    var n = $('.pfah-wrapper:last').data('style').toLowerCase() === 'no'
+    // default style
+    if (!n) pfah.asset('style', 'pfah')
+    // all forms
+    $('.pfah-wrapper').each(function () {
       // customize theme
-      $('.pfah-wrapper').each(function () {
+      if (!n) {
         var t = $(this).data('theme').toLowerCase()
         if (t) pfah.asset('style', t)
-      })
-    }
-  },
-  form: function () {
-    $('.pfah-wrapper').each(function () {
-      var p = $(this).find('.pfah-form').attr('action')
+      }
       // check form link
+      var p = $(this).find('.pfah-form').attr('action')
       if (p.indexOf('go.pardot.com') < 0) {
         $(this).trigger('pfah.notpardot')
           .find('[type="submit"]').attr('disabled', 'disabled')
@@ -73,6 +67,8 @@ pfah.init = {
       }
     })
   }
+  // popup
+  if ($('.pfah-popup').length > 0) pfah.asset('vendor', 'jquery.bpopup')
 }
 
 // form state
@@ -90,11 +86,7 @@ pfah.callback = function (res) {
 // document ready
 $(function () {
   // initialize
-  if ($('.pfah-wrapper').length > 0) {
-    pfah.init.form()
-    pfah.init.style()
-  }
-  if ($('.pfah-popup').length > 0) pfah.init.vendor()
+  pfah.init()
 
   // submit form
   $('body').on('submit', '.pfah-wrapper', function (e) {
