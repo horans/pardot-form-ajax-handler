@@ -17,33 +17,36 @@ var pScripts = document.getElementsByTagName('script')
 pfah.src = pScripts[pScripts.length - 1].src
 pfah.path = pfah.src.substring(0, pfah.src.lastIndexOf('/') + 1)
 
-// load popup vendor
-pfah.load = {
-  vendor: false,
-  style: false
+// load asset
+pfah.asset = function (type, asset) {
+  if (type !== 'vendor') type = 'style'
+  if ($('head #' + type + '-' + asset).length === 0) {
+    var a = document.createElement(type === 'vendor' ? 'script' : 'link')
+    a.id = type + '-' + asset
+    if (type === 'vendor') {
+      a.src = pfah.path + asset + '.min.js'
+    } else {
+      a.rel = 'stylesheet'
+      a.href = pfah.path + 'pardot-form' + (asset === 'pfah' ? '' : ('-' + asset)) + '.css'
+    }
+    document.getElementsByTagName('head')[0].appendChild(a)
+  }
 }
+
+// initialize
 pfah.init = {
   vendor: function () {
-    if (!pfah.load.vendor) {
-      pfah.popup = document.createElement('script')
-      pfah.popup.src = pfah.path + 'jquery.bpopup.min.js'
-      document.getElementsByTagName('head')[0].appendChild(pfah.popup)
-      pfah.load.vendor = true
-    }
+    // popup
+    pfah.asset('vendor', 'jquery.bpopup')
   },
   style: function () {
-    pfah.style = document.createElement('link')
-    pfah.style.rel = 'stylesheet'
-    pfah.style.href = pfah.path + 'pardot-form.css'
-    document.getElementsByTagName('head')[0].appendChild(pfah.style)
-    var s = $('.pfah-wrapper').data('style').toLowerCase()
-    if (s) {
-      pfah.brand = document.createElement('link')
-      pfah.brand.rel = 'stylesheet'
-      pfah.brand.href = pfah.path + 'pardot-form-' + s + '.css'
-      document.getElementsByTagName('head')[0].appendChild(pfah.brand)
-    }
-    pfah.load.style = true
+    // default style
+    if ($('.pfah-wrapper').data('style').toLowerCase() !== 'no') pfah.asset('style', 'pfah')
+    // customize theme
+    $('.pfah-wrapper').each(function () {
+      var t = $(this).data('theme').toLowerCase()
+      if (t) pfah.asset('style', t)
+    })
   },
   form: function () {
     $('.pfah-wrapper').each(function () {
@@ -106,7 +109,7 @@ $(function () {
 
   // callback handler
   $('body').on('pfah.callback', function (e, id, result) {
-    var s = $('#' + id).data('state')
+    var s = $('#' + id).data('state').toLowerCase()
     if (s && (result === s || s === 'all')) window.localStorage.setItem(pfah.form.id, result)
     $('#' + pfah.form.id).addClass('pfah-result-' + result)
       .find('[type="submit"]').removeAttr('disabled')

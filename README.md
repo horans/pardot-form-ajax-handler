@@ -2,10 +2,6 @@
 
 "Pardot Form AJAX Handler", or "PFAH" in short, will help to you setup an `AJAX` submission for [Pardot](https://www.pardot.com/) forms, which were designed to submit with `POST` in `iframe`. With `JSONP`, we can even handle the result from Pardot's redirect.
 
-## Features
-
-_(TO BE DONE)_
-
 ## Install
 
 1. Extract and upload all the files in `dist` folder to your server.
@@ -56,12 +52,15 @@ _(TO BE DONE)_
 
 Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`.
 
-* __`data-state="done"`__: PFAH will save "done/error/all" state into `localStorage` with `[.pfah-wrapper]` ID.
+* __`data-state="done"`__: PFAH will save "done/error" state into `localStorage` with `[.pfah-wrapper]` ID.
+    * This attribute can be either `done`, `error` or `all`.
     * With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
 * __`data-source="source"`__: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
     * This attribute can be customized according to your choice, but we suggest to use `source` or `referrer`.
     * You have to add `source` or your customized field to Pardot form to make it work.
     * You have to make sure you haven't use the same name somewhere else in form already.
+* __`data-style="no"`__: Use this option to complete disable the style of PFAH by not load css file at all.
+    * This option will disable theme as well.
 
 ### Popup
 
@@ -71,7 +70,7 @@ _(TO BE DONE)_
 
 PFAH will initialize automatically when `DOM` is ready, however you can manually perform them if forms are loaded into page asynchronously.
 
-* __`pfah.init.form()`__: Check action url, generate id and show `.pfah-done` base on `localStorage`.
+* __`pfah.init.form()`__: Check action url, generate id and show stored state.
 * __`pfah.init.style()`__: Add basic form style and extra theme.
 * __`pfah.init.vendor()`__: Load vendor js if the form is show on popup.
 
@@ -87,9 +86,10 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 PFAH allow you to override default style by adding your own `css` file.
 
-1. upload `pardot-form-mytheme01.css` to same folder you put PFAH.
-    * e.g., `//sample.com/pardot-form/pardot-form-mytheme01.css`
-2. add `data-style="mytheme01"` to `.pfah-wrapper`.
+1. upload `pardot-form-mytheme.css` to same folder you put PFAH.
+    * e.g., `//sample.com/pardot-form/pardot-form-mytheme.css`
+2. add `data-theme="mytheme"` to `.pfah-wrapper`.
+    * Make sure your theme name is in lower case.
 
 ## More
 
@@ -109,6 +109,8 @@ PFAH allow you to override default style by adding your own `css` file.
 
 * build 180608
     * allow source track
+    * allow style disable
+    * update asset load
     * update states save
 
 * build 180607
