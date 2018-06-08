@@ -77,7 +77,7 @@ however you can manually perform it if forms are loaded into page asynchronously
   + Check form action url.
   + Generate ID.
   + Show stored state.
-  + Load vendor js if the form is show on popup.
+  + Load vendor js if there is a form shown in popup.
 
 ### Events
 
