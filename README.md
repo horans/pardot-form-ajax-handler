@@ -57,6 +57,9 @@ _(TO BE DONE)_
 Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`.
 
 * `data-state="no"`: PFAH will not save "done" state into `localStorage`, and will not show `.pfah-done` next time when user visit the page.
+* `data-source="source"`: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
+    * You have to add `source` field to Pardot form to make it work.
+    * You have to make sure you don't use same name in form already.
 
 ### Popup
 
@@ -101,6 +104,9 @@ PFAH allow you to override default style by adding your own `css` file.
 * CSS linter: [CSSLint](https://github.com/CSSLint/csslint)
 
 ### Change logs
+
+* build 180608
+    * allow source track
 
 * build 180607
     * initial release

@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170607                                   *
+*  update: 170608                                   *
 ****************************************************/
 
 /* global $ */
@@ -53,6 +53,10 @@ pfah.init = {
           .find('[type="submit"]').attr('disabled', 'disabled')
         window.console.log('[pfah] not a pardot form')
       } else {
+        var s = $(this).data('source')
+        if (s && $(this).find('[name="' + s + '"]').length === 0) {
+          $(this).prepend('<input type="hidden" name="' + s + '" value="' + window.location.href + '" />')
+        }
         var i = p.substring(p.lastIndexOf('/') + 1)
         $(this).attr('id', 'pfah-' + i)
         var l = window.localStorage.getItem('pfah-' + i)
