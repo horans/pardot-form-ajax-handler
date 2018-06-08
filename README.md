@@ -78,7 +78,7 @@ PFAH will initialize automatically when `DOM` is ready, however you can manually
 
 PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
-* __`pfah.notpardot`__: a form `action` was not a proper Pardot iframe emebed link.
+* __`pfah.notpardot`__: a form `action` was not a proper Pardot iframe embed link.
 * __`pfah.submit`__: a form was submitted to Pardot with `.pfah-wrapper` __id__.
 * __`pfah.callback`__: received result from Pardot with `.pfah-wrapper` __id__ and "__done__/__error__" as extra parameters.
 
@@ -110,9 +110,6 @@ PFAH allow you to override default style by adding your own `css` file.
 * build 180608
     * allow source track
     * allow style disable
-    * update asset load
-    * update states save
-    * relocate vendor
 
 * build 180607
     * initial release
