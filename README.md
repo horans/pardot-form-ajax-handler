@@ -5,16 +5,16 @@
 ## Install
 
 1. Extract and upload all the files in `dist` folder to your server.
-    * e.g., `//sample.com/pardot-form/`.
+    * e.g., `//sample.com/pfah/`.
 
 ## Setup
 
-1. Add main script __after jQuery__.
-    * e.g., `<script src="//sample.com/pardot-form/pardot-form.js"></script>`
+1. Add main script __after jQuery__ is introduced.
+    * e.g., `<script src="//sample.com/pfah/pardot-form.js"></script>`
 
 2. Go to [Pardot](https://pi.pardot.com/form) and edit success/error location of the form.
-    * set "Success Location" as `//sample.com/pardot-form/pardot-form-callback-done.js`.
-    * set "Error Location" as `//sample.com/pardot-form/pardot-form-callback-error.js`.
+    * set "Success Location" as `//sample.com/pfah/pardot-form-callback-done.js`.
+    * set "Error Location" as `//sample.com/pfah/pardot-form-callback-error.js`.
 
 ## Basic Usage
 
@@ -45,6 +45,7 @@ _(TO BE DONE)_
 ### Notices
 
 * Make sure that you have `[type="submit"]` button/input to submit your form.
+* Multiple forms are supported.
 
 ## Advanced Usage
 
@@ -53,12 +54,12 @@ _(TO BE DONE)_
 Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`.
 
 * __`data-state="done"`__: PFAH will save "done/error" state into `localStorage` with `[.pfah-wrapper]` ID.
-    * This attribute can be either `done`, `error` or `all`.
+    * This attribute can be either "__done__", "__error__" or "__all__".
     * With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
 * __`data-source="source"`__: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
-    * This attribute can be customized according to your choice, but we suggest to use `source` or `referrer`.
+    * This attribute can be customized according to your choice, but we suggest to use "__source__" or "__referrer__".
     * You have to add `source` or your customized field to Pardot form to make it work.
-    * You have to make sure you haven't use the same name somewhere else in form already.
+    * You have to make sure you haven't use the same name somewhere else in form.
 * __`data-style="no"`__: Use this option to complete disable the style of PFAH by not load css file at all.
     * This option will disable theme as well.
 
@@ -68,10 +69,11 @@ _(TO BE DONE)_
 
 ### Functions
 
-PFAH will initialize automatically when `DOM` is ready, however you can manually perform them if forms are loaded into page asynchronously.
+PFAH will initialize automatically when `DOM` is ready,  
+however you can manually perform them if forms are loaded into page asynchronously.
 
 * __`pfah.init.form()`__: Check action url, generate id and show stored state.
-* __`pfah.init.style()`__: Add basic form style and extra theme.
+* __`pfah.init.style()`__: Add default form style and extra theme.
 * __`pfah.init.vendor()`__: Load vendor js if the form is show on popup.
 
 ### Events
@@ -84,10 +86,11 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 ### Themes
 
-PFAH allow you to override default style by adding your own `css` file.
+PFAH allow you to override default style by adding your own `css` file.  
+Different forms can use their own themes even they are on the same page.
 
 1. upload `pardot-form-mytheme.css` to same folder you put PFAH.
-    * e.g., `//sample.com/pardot-form/pardot-form-mytheme.css`
+    * e.g., `//sample.com/pfah/pardot-form-mytheme.css`
 2. add `data-theme="mytheme"` to `.pfah-wrapper`.
     * Make sure your theme name is in lower case.
 
