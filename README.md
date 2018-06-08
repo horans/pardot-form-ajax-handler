@@ -112,6 +112,7 @@ PFAH allow you to override default style by adding your own `css` file.
     * allow style disable
     * update asset load
     * update states save
+    * relocate vendor
 
 * build 180607
     * initial release

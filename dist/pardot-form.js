@@ -24,7 +24,7 @@ pfah.asset = function (type, asset) {
     var a = document.createElement(type === 'vendor' ? 'script' : 'link')
     a.id = type + '-' + asset
     if (type === 'vendor') {
-      a.src = pfah.path + asset + '.min.js'
+      a.src = pfah.path + 'vendor/' + asset + '.min.js'
     } else {
       a.rel = 'stylesheet'
       a.href = pfah.path + 'pardot-form' + (asset === 'pfah' ? '' : ('-' + asset)) + '.css'
@@ -40,28 +40,34 @@ pfah.init = {
     pfah.asset('vendor', 'jquery.bpopup')
   },
   style: function () {
-    // default style
-    if ($('.pfah-wrapper').data('style').toLowerCase() !== 'no') pfah.asset('style', 'pfah')
-    // customize theme
-    $('.pfah-wrapper').each(function () {
-      var t = $(this).data('theme').toLowerCase()
-      if (t) pfah.asset('style', t)
-    })
+    if ($('.pfah-wrapper').data('style').toLowerCase() !== 'no') {
+      // default style
+      pfah.asset('style', 'pfah')
+      // customize theme
+      $('.pfah-wrapper').each(function () {
+        var t = $(this).data('theme').toLowerCase()
+        if (t) pfah.asset('style', t)
+      })
+    }
   },
   form: function () {
     $('.pfah-wrapper').each(function () {
       var p = $(this).find('.pfah-form').attr('action')
+      // check form link
       if (p.indexOf('go.pardot.com') < 0) {
         $(this).trigger('pfah.notpardot')
           .find('[type="submit"]').attr('disabled', 'disabled')
         window.console.log('[pfah] not a pardot form')
       } else {
+        // add source track
         var s = $(this).data('source')
         if (s && $(this).find('[name="' + s + '"]').length === 0) {
           $(this).prepend('<input type="hidden" name="' + s + '" value="' + window.location.href + '" />')
         }
+        // add id
         var i = p.substring(p.lastIndexOf('/') + 1)
         $(this).attr('id', 'pfah-' + i)
+        // load state
         var l = window.localStorage.getItem('pfah-' + i)
         if (l) $(this).addClass('pfah-result-' + l)
       }
@@ -84,8 +90,10 @@ pfah.callback = function (res) {
 // document ready
 $(function () {
   // initialize
-  if ($('.pfah-wrapper').length > 0) pfah.init.form()
-  if ($('.pfah-wrapper').length > 0) pfah.init.style()
+  if ($('.pfah-wrapper').length > 0) {
+    pfah.init.form()
+    pfah.init.style()
+  }
   if ($('.pfah-popup').length > 0) pfah.init.vendor()
 
   // submit form
@@ -98,6 +106,7 @@ $(function () {
       f.find('[type="submit"]').attr('disabled', 'disabled')
       window.console.log('[pfah] form submit')
       $(this).trigger('pfah.submit', pfah.form.id)
+      // stackoverflow.com/questions/47047487/
       $.ajax({
         url: f.attr('action'),
         method: 'POST',
@@ -119,6 +128,8 @@ $(function () {
 
   // close error message
   $('body').on('click', '.pfah-error', function () {
-    $(this).closest('.pfah-wrapper').removeClass('pfah-result-error')
+    var f = $(this).closest('.pfah-wrapper')
+    f.removeClass('pfah-result-error')
+    window.localStorage.removeItem(f.attr('id'))
   })
 })
