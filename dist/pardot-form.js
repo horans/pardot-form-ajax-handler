@@ -106,7 +106,8 @@ $(function () {
 
   // callback handler
   $('body').on('pfah.callback', function (e, id, result) {
-    if (result === 'done' && $('#' + id).data('state') !== 'no') window.localStorage.setItem(pfah.form.id, result)
+    var s = $('#' + id).data('state')
+    if (s && (result === s || s === 'all')) window.localStorage.setItem(pfah.form.id, result)
     $('#' + pfah.form.id).addClass('pfah-result-' + result)
       .find('[type="submit"]').removeAttr('disabled')
     pfah.form.id = ''

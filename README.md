@@ -56,10 +56,12 @@ _(TO BE DONE)_
 
 Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`.
 
-* `data-state="no"`: PFAH will not save "done" state into `localStorage`, and will not show `.pfah-done` next time when user visit the page.
-* `data-source="source"`: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
-    * You have to add `source` field to Pardot form to make it work.
-    * You have to make sure you don't use same name in form already.
+* __`data-state="done"`__: PFAH will save "done/error/all" state into `localStorage` with `[.pfah-wrapper]` ID.
+    * With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
+* __`data-source="source"`__: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
+    * This attribute can be customized according to your choice, but we suggest to use `source` or `referrer`.
+    * You have to add `source` or your customized field to Pardot form to make it work.
+    * You have to make sure you haven't use the same name somewhere else in form already.
 
 ### Popup
 
@@ -69,17 +71,17 @@ _(TO BE DONE)_
 
 PFAH will initialize automatically when `DOM` is ready, however you can manually perform them if forms are loaded into page asynchronously.
 
-* `pfah.init.form()`: Check action url, generate id and show `.pfah-done` base on `localStorage`.
-* `pfah.init.style()`: Add basic form style and extra theme.
-* `pfah.init.vendor()`: Load vendor js if the form is show on popup.
+* __`pfah.init.form()`__: Check action url, generate id and show `.pfah-done` base on `localStorage`.
+* __`pfah.init.style()`__: Add basic form style and extra theme.
+* __`pfah.init.vendor()`__: Load vendor js if the form is show on popup.
 
 ### Events
 
 PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
-* `pfah.notpardot`: a form `action` was not a proper Pardot iframe emebed link.
-* `pfah.submit`: a form was submitted to Pardot with `.pfah-wrapper` __id__.
-* `pfah.callback`: received result from Pardot with `.pfah-wrapper` __id__ and "__done__/__error__" as extra parameters.
+* __`pfah.notpardot`__: a form `action` was not a proper Pardot iframe emebed link.
+* __`pfah.submit`__: a form was submitted to Pardot with `.pfah-wrapper` __id__.
+* __`pfah.callback`__: received result from Pardot with `.pfah-wrapper` __id__ and "__done__/__error__" as extra parameters.
 
 ### Themes
 
@@ -107,6 +109,7 @@ PFAH allow you to override default style by adding your own `css` file.
 
 * build 180608
     * allow source track
+    * update states save
 
 * build 180607
     * initial release
