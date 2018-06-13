@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170608                                   *
+*  update: 170613                                   *
 ****************************************************/
 
 /* global $ */
@@ -36,15 +36,15 @@ pfah.asset = function (type, asset) {
 // initialize
 pfah.init = function () {
   if ($('.pfah-wrapper').length > 0) {
-    var n = $('.pfah-wrapper:last').data('style').toLowerCase() === 'no'
+    var n = $('.pfah-wrapper:last').data('style') === 'no'
     // default style
     if (!n) pfah.asset('style', 'pfah')
     // all forms
     $('.pfah-wrapper').each(function () {
       // customize theme
       if (!n) {
-        var t = $(this).data('theme').toLowerCase()
-        if (t) pfah.asset('style', t)
+        var t = $(this).data('theme')
+        if (t) pfah.asset('style', t.toLowerCase())
       }
       // check form link
       var p = $(this).find('.pfah-form').attr('action')
@@ -112,7 +112,7 @@ $(function () {
   $('body').on('pfah.callback', function (e, id, result) {
     var s = $('#' + id).data('state').toLowerCase()
     if (s && (result === s || s === 'all')) window.localStorage.setItem(pfah.form.id, result)
-    $('#' + pfah.form.id).addClass('pfah-result-' + result)
+    $('#' + pfah.form.id).removeClass('pfah-result-error pfah-result-done').addClass('pfah-result-' + result)
       .find('[type="submit"]').removeAttr('disabled')
     pfah.form.id = ''
     pfah.form.load = false

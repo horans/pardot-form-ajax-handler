@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>B87E51A4-1314-433B-9A7D-C827C6648868</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1259.000000, -400.000000)">
+            <g transform="translate(1038.000000, 250.000000)">
+                <g transform="translate(95.000000, 151.000000)">
+                    <g transform="translate(127.000000, 0.000000)">
+                        <circle class="pfah-svg-stroke pfah-svg-primary" stroke="#272e62" stroke-width="2" cx="32" cy="32" r="32"></circle>
+                        <circle class="pfah-svg-fill pfah-svg-secondary" fill="#435bfd" cx="17" cy="26" r="4"></circle>
+                        <circle class="pfah-svg-fill pfah-svg-secondary" fill="#435bfd" cx="47" cy="26" r="4"></circle>
+                        <path class="pfah-svg-stroke pfah-svg-primary" d="M17,37 C17,45.2842712 23.7157288,52 32,52 C40.2842712,52 47,45.2842712 47,37" stroke="#272e62" stroke-width="2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

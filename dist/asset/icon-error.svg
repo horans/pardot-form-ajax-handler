@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>E7DAABE3-F7F3-43F6-A2DD-0525E18AFD4B</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1091.000000, -742.000000)">
+            <g transform="translate(1067.000000, 126.000000)">
+                <g transform="translate(24.000000, 613.000000)">
+                    <g transform="translate(0.000000, 3.000000)">
+                        <circle class="pfah-svg-stroke pfah-svg-error" stroke="#f37460" cx="7" cy="7" r="6.5"></circle>
+                        <g transform="translate(6.000000, 3.000000)">
+                            <path d="M1,0 L1,4" class="pfah-svg-stroke pfah-svg-error" stroke="#f37460" stroke-width="2" stroke-linecap="round"></path>
+                            <circle class="pfah-svg-fill pfah-svg-error" fill="#f37460" cx="1" cy="7" r="1"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

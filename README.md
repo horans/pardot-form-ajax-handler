@@ -62,6 +62,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
   + You have to make sure you haven't use the same name somewhere else in form.
 * __`data-style="no"`__: Use this option to complete disable the style of PFAH by not load css file at all.
   + This option will disable theme as well.
+* __`data-error="keep"`__: Use this option to reserve the space for error message.
 
 ### Popup
 
@@ -113,10 +114,21 @@ Different forms can use their own themes even they are on the same page.
 
 ### Change logs
 
-* build 180608
-  + allow source track
-  + allow style disable
-  + unify init function
+__build 180613__
 
-* build 180607
-  + initial release
+* update basic style
+* allow keep error message
+
+---
+
+__build 180608__
+
+* allow source track
+* allow style disable
+* unify init function
+
+---
+
+__build 180607__
+
+* initial release
