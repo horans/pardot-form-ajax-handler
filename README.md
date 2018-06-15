@@ -66,7 +66,10 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 
 ### Popup
 
-_(TO BE DONE)_
+1. Wrap your `.pfah-wrapper` in `.pfah-popup`.
+2. Name your `.pfah-popup` with class or ID, eg., `.my-form`.
+3. Toggle popup with any element with `data-toggle="pfah-popup" data-target=".my-form"`.
+  * You can manually toggle popup by [bPopup()](https://github.com/dinbror/bpopup)
 
 ### Functions
 
@@ -113,6 +116,14 @@ Different forms can use their own themes even they are on the same page.
 * CSS linter: [CSSLint](https://github.com/CSSLint/csslint)
 
 ### Change logs
+
+__build 180615__
+
+* add icons
+* allow popup
+* allow half row column
+
+---
 
 __build 180613__
 

@@ -3,33 +3,42 @@
 *  description: main style                          *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170613                                   *
+*  update: 170615                                   *
 ****************************************************/
-/* csslint ignore: start */
 /* color */
+/* csslint ignore: start */
 :root { --pfah-border: #989898; --pfah-cancel: #979797; --pfah-dark: #353031; --pfah-error: #f37460; --pfah-gray: #5a5b64; --pfah-primary: #272e62; --pfah-secondary: #435bfd; --pfah-white: #fff; }
 /* csslint ignore: end */
 /* common */
 .pfah-wrapper, .pfah-wrapper * { box-sizing: border-box; } /* csslint allow: universal-selector, box-sizing */
 .pfah-wrapper { background-color: #fff; box-shadow: 0 .625rem 1.5rem 0 rgba(0, 0, 0, .16); color: var(--pfah-dark); font-size: .875rem; line-height: 1rem; overflow: hidden; padding: 1.875rem 1.5rem; position: relative; } /* csslint allow: known-properties */
 .pfah-wrapper a { color: var(--pfah-secondary); } /* csslint allow: known-properties */
+.pfah-row, .pfah-row::after { clear: both; content: ""; display: block; }
 .pfah-transition { -webkit-transition: all ease-out .2s; -o-transition: all ease-out .2s; -moz-transition: all ease-out .2s; transition: all ease-out .2s; }
+.pfah-icon { background-position: center; background-repeat: no-repeat; background-size: contain; display: inline-block; height: 14px; width: 14px; }
 /* form */
 .pfah-title { font-size: 1.125rem; font-weight: bold; line-height: 1.33; margin-bottom: 1.25rem; }
+.pfah-desc { line-height: 1.25rem; }
 .pfah-row { margin-bottom: 1.25rem; }
-.pfah-label { display: block; margin-bottom: .125rem; }
+.pfah-label { display: block; margin-bottom: .125rem; position: relative; }
+.pfah-label sup { margin-left: .25rem; position: absolute; top: -.25rem; }
 .pfah-input { border: none; border-bottom: solid 1px var(--pfah-border); display: block; font-size: .875rem; line-height: 1.5rem; padding: .25rem 0; width: 100%; } /* csslint allow: known-properties */
 .pfah-input::-webkit-input-placeholder,
 .pfah-input:-ms-input-placeholder,
 .pfah-input::-moz-placeholder { color: var(--pfah-cancel); } /* csslint allow: known-properties */
-select.pfah-input { padding: .4375rem 0; }
+.pfah-select { position: relative; }
+.pfah-select-icon { background-image: url("asset/icon-caret.svg"); height: 5px; position: absolute; right: 0; top: 15px; width: 9px; }
+select.pfah-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+select.pfah-input:focus + .pfah-select-icon { transform: rotate(180deg); }
 textarea.pfah-input { border: solid 1px var(--pfah-border); font-family: inherit; margin-top: .25rem; padding: .625rem; } /* csslint allow: known-properties */
 .pfah-check-item { line-height: 1.25rem; }
-.pfah-check-item > .pfah-check-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; display: none; }
-.pfah-check-item > .pfah-check-icon { cursor: pointer; display: inline-block; height: .875rem; margin-right: .5rem; position: relative; text-align: center; vertical-align: middle; width: .875rem; }
-.pfah-check-item > .pfah-check-icon::before { border: solid 1px var(--pfah-border); content: ""; display: inline-block; height: 100%; left: 0; position: absolute; top: 0; width: 100%; } /* csslint allow: box-model, known-properties */
+.pfah-check-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; display: none; }
+.pfah-check-icon { border: solid 1px var(--pfah-border); cursor: pointer; height: .875rem; margin-right: .5rem; position: relative; text-align: center; vertical-align: middle; width: .875rem; } /* csslint allow: box-model, known-properties */
+.pfah-check-input:checked + .pfah-check-icon { background-image: url("asset/icon-check.svg"); }
+.pfah-check-label { cursor: pointer; }
 .pfah-button { background-color: var(--pfah-secondary); border: none; border-radius: .25rem; box-shadow: 0 1rem 1.5rem 0 rgba(0, 0, 0, 0.2); color: var(--pfah-white); cursor: pointer; display: block; font-size: 1.125rem; font-weight: bold; line-height: 2.75rem; text-align: center; width: 100%; } /* csslint allow: known-properties */
 .pfah-button:disabled { background-color: var(--pfah-cancel); cursor: not-allowed; } /* csslint allow: known-properties */
+.pfah-button:hover:not(:disabled) { box-shadow: 0 .8rem 1.2rem 0 rgba(0, 0, 0, 0.2); -webkit-transform: translateY(1px); -moz-transform: translateY(1px); -ms-transform: translateY(1px); -o-transform: translateY(1px); transform: translateY(1px); }
 /* result */
 .pfah-done,
 .pfah-error { opacity: 0; z-index: -2; }
@@ -39,12 +48,18 @@ textarea.pfah-input { border: solid 1px var(--pfah-border); font-family: inherit
 .pfah-done-heading { font-size: 1.875rem; font-weight: bold; line-height: 2.25rem; margin: 1.25rem 0 .625rem; }
 .pfah-done-text { font-size: 1rem; line-height: 1.5rem; }
 .pfah-error { left: 0; line-height: 1.25rem; margin-top: .625rem; max-height: 0; overflow: hidden; }
+.pfah-done-icon { background-image: url("asset/icon-smile.svg"); height: 66px; width: 66px; }
+.pfah-error-icon { background-image: url("asset/icon-error.svg"); }
 .pfah-wrapper[data-error="keep"] .pfah-error { max-height: none; position: relative; }
 .pfah-wrapper[data-error="keep"] .pfah-error::before { content: ""; height: 100%; position: absolute; top: 0; width: 100%; }
 .pfah-result-done .pfah-done,
 .pfah-result-error .pfah-error { opacity: 1; z-index: 2; }
 .pfah-result-error .pfah-error { max-height: 5rem; }
-
+/* popup */
+.pfah-popup { display: none; position: relative; }
+.pfah-close { background-image: url("asset/icon-close.svg"); cursor: pointer; height: 1rem; position: absolute; right: 1rem; top: 1rem; width: 1rem; z-index: 2; }
+.pfah-close:hover { background-color: var(--pfah-primary); background-image: none; -webkit-mask: url("asset/icon-close.svg"); mask: url("asset/icon-close.svg"); } /* csslint allow: known-properties */
 @media (min-width: 768px) {
-.pfah-row > .pfah-col { float: left; width: 50%; }
+.pfah-row-with-col { margin: 0 -.625rem 1.25rem; }
+.pfah-row-with-col > .pfah-col { float: left; padding: 0 .625rem; width: 50%; } /* csslint allow: box-model */
 }

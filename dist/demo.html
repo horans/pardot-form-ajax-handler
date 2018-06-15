@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pardot Form AJAX Handler (demo)</title>
+  </head>
+  <body style="background-color: #f9f9f9">
+
+  <!--
+  /****************************************************
+  *  project: pardot form ajax handler                *
+  *  description: demo page with working functions    *
+  *  author: mazq@wondershare.cn                      *
+  *  update: 180616                                   *
+  ****************************************************/
+  -->
+
+    <h1>Pardot Form AJAX Handler (demo)</h1>
+
+    <section>
+      <h2>Inpage form</h2>
+      <div style="max-width: 385px; margin: 0 auto">
+        <div class="pfah-wrapper" data-state="no" data-error="keep">
+          <form action="https://go.pardot.com/l/285052/2018-02-23/22nrnw" class="pfah-form">
+            <div class="pfah-title">Increase your productivity today.</div>
+            <div class="pfah-row">
+              <label class="pfah-label">Name <sup>*</sup></label>
+              <input type="text" class="pfah-input" name="fulltname" placeholder="Please enter your name." />
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">Email <sup>*</sup></label>
+              <input type="email" class="pfah-input" name="email" placeholder="Please enter a valid email adress." />
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">Number of Licenses <sup>*</sup></label>
+              <input type="number" class="pfah-input" name="licenses" placeholder="1" />
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">Industry (Optional)</label>
+              <div class="pfah-select">
+                <select class="pfah-input" name="industry">
+                  <option value="0" selected disabled>Select</option>
+                  <option value="1">IT</option>
+                  <option value="2">Retail</option>
+                </select>
+                <i class="pfah-select-icon pfah-icon pfah-transition"></i>
+              </div>
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">How can we help? (Optional)</label>
+              <textarea name="description" class="pfah-input" rows="2" placeholder="Your thoughts..."></textarea>
+            </div>
+            <div class="pfah-row pfah-group">
+              <label class="pfah-check-item">
+                <input class="pfah-check-input" type="checkbox" checked>
+                <span class="pfah-check-icon pfah-icon"></span>
+                <span class="pfah-check-label">By clicking the button, I agree to the <a href="#" target="blank">privacy policy</a> and to hear about offers or services.</span>
+              </label>
+            </div>
+            <div class="pfah-action">
+              <button type="submit" class="pfah-button pfah-transition">TALK TO US</button>
+            </div>
+          </form>
+          <aside class="pfah-done pfah-transition">
+            <div class="pfah-done-wrapper">
+              <i class="pfah-done-icon pfah-icon"></i>
+              <div class="pfah-done-heading">Thank you for contacting us.</div>
+              <div class="pfah-done-text">We have received your enquiry and will respond to you soon.</div>
+            </div>
+          </aside>
+          <aside class="pfah-error pfah-transition">
+            <i class="pfah-error-icon pfah-icon"></i>
+            <span class="pfah-error-text">Submission failed.Please enter the required information and try again.</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <h2>Popup form</h2>
+      <button data-toggle="pfah-popup" data-target="#popup-form">Show Form</button>
+      <div class="pfah-popup" id="popup-form" style="max-width: 508px; margin: 0 auto">
+        <div class="pfah-wrapper" data-state="no">
+          <i class="pfah-close pfah-icon"></i>
+          <form action="http://go.pardot.com/l/285052/2018-06-15/2yqqct" class="pfah-form">
+            <div class="pfah-title">Volumen Licensing Program</div>
+            <div class="pfah-desc">Please fill out the form beloe to request a quote and we will get back to you as soon as possible.</div>
+            <div class="pfah-row pfah-row-with-col">
+              <div class="pfah-col">
+                <label class="pfah-label">Name <sup>*</sup></label>
+                <input type="text" class="pfah-input" name="fulltname" placeholder="Please enter your name." />
+              </div>
+              <div class="pfah-col">
+                <label class="pfah-label">Email <sup>*</sup></label>
+                <input type="email" class="pfah-input" name="email" placeholder="Please enter a valid email adress." />
+              </div>
+            </div>
+            <div class="pfah-row pfah-row-with-col">
+              <div class="pfah-col">
+                <label class="pfah-label">Number of Licenses <sup>*</sup></label>
+                <input type="number" class="pfah-input" name="licenses" placeholder="1" />
+              </div>
+              <div class="pfah-col">
+                <label class="pfah-label">Phone Number (Optional)</label>
+                <input type="tel" class="pfah-input" name="phone" placeholder="1234567890" />
+              </div>
+            </div>
+            <div class="pfah-row pfah-row-with-col">
+              <div class="pfah-col">
+                <label class="pfah-label">Industry (Optional)</label>
+                <div class="pfah-select">
+                  <select class="pfah-input" name="industry">
+                    <option value="0" selected disabled>Select</option>
+                    <option value="1">IT</option>
+                    <option value="2">Retail</option>
+                  </select>
+                  <i class="pfah-select-icon pfah-icon pfah-transition"></i>
+                </div>
+              </div>
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">How can we help? (Optional)</label>
+              <textarea name="description" class="pfah-input" rows="2" placeholder="Your thoughts..."></textarea>
+            </div>
+            <div class="pfah-row pfah-group">
+              <label class="pfah-check-item">
+                <input class="pfah-check-input" type="checkbox" checked>
+                <span class="pfah-check-icon pfah-icon"></span>
+                <span class="pfah-check-label">By clicking the button, I agree to the <a href="#" target="blank">privacy policy</a> and to hear about offers or services.</span>
+              </label>
+            </div>
+            <div class="pfah-action">
+              <button type="submit" class="pfah-button pfah-transition">TALK TO US</button>
+            </div>
+          </form>
+          <aside class="pfah-done pfah-transition">
+            <div class="pfah-done-wrapper">
+              <i class="pfah-done-icon pfah-icon"></i>
+              <div class="pfah-done-heading">Thank you for contacting us.</div>
+              <div class="pfah-done-text">We have received your enquiry and will respond to you soon.</div>
+            </div>
+          </aside>
+          <aside class="pfah-error pfah-transition">
+            <i class="pfah-error-icon pfah-icon"></i>
+            <span class="pfah-error-text">Submission failed.Please enter the required information and try again.</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="pardot-form.js"></script>
+  </body>
+</html>
