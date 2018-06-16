@@ -11,7 +11,6 @@
 
 1. Add main script __after jQuery__ is introduced.
     * e.g., `<script src="//sample.com/pfah/pardot-form.js"></script>`
-
 2. Go to [Pardot](https://pi.pardot.com/form) and edit success/error location of the form.
     * set "Success Location" as `//sample.com/pfah/pardot-form-callback-done.js`.
     * set "Error Location" as `//sample.com/pfah/pardot-form-callback-error.js`.
@@ -67,9 +66,20 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 ### Popup
 
 1. Wrap your `.pfah-wrapper` in `.pfah-popup`.
-2. Name your `.pfah-popup` with class or ID, eg., `.my-form`.
-3. Toggle popup with any element with `data-toggle="pfah-popup" data-target=".my-form"`.
-  * You can manually toggle popup by [bPopup()](https://github.com/dinbror/bpopup)
+2. Name your `.pfah-popup` with class or ID
+    * eg., `#my-form`.
+3. Toggle popup with any element with `data-toggle="pfah-popup"`
+    * Use `data-target` to link the element with PFAH
+    * You can manually toggle popup by [bPopup()](https://github.com/dinbror/bpopup).
+
+```html
+<button data-toggle="pfah-popup" data-target="#my-form"></button>
+<div class="pfah-popup" id="my-form">
+  <div class="pfah-wrapper">
+    ...
+  </div>
+</div>
+```
 
 ### Functions
 
@@ -114,10 +124,11 @@ Different forms can use their own themes even they are on the same page.
 * Vendor: [bPopup](https://github.com/dinbror/bpopup)
 * JS linter: [standard](https://github.com/standard/standard)
 * CSS linter: [CSSLint](https://github.com/CSSLint/csslint)
+* HTML linter: [htmllint](https://github.com/htmllint/htmllint)
 
 ### Change logs
 
-__build 180615__
+__build 180616__
 
 * add icons
 * allow popup
