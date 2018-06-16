@@ -22,20 +22,22 @@ Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are good to go!
 
 ### Template
 
-    <div class="pfah-wrapper">
-      <form action="https://go.pardot.com/l/285052/2018-02-23/22nrnw" class="pfah-form">
-        <input type="email" class="pfah-input" name="email" />
-        <input type="text" class="pfah-input" name="firstname" />
-        <input type="text" class="pfah-input" name="lastname" />
-        <button type="submit" class="pfah-input">Submit</button>
-      </form>
-      <aside class="pfah-done">
-        <div class="pfah-done-text">Thank you for your time!</div>
-      </aside>
-      <aside class="pfah-error">
-        <span class="pfah-error-text">Something wrong, please try again!</span>
-      </aside>
-    </div>
+```html
+<div class="pfah-wrapper">
+  <form action="https://go.pardot.com/l/285052/2018-02-23/22nrnw" class="pfah-form">
+    <input type="email" class="pfah-input" name="email" />
+    <input type="text" class="pfah-input" name="firstname" />
+    <input type="text" class="pfah-input" name="lastname" />
+    <button type="submit" class="pfah-input">Submit</button>
+  </form>
+  <aside class="pfah-done">
+    <div class="pfah-done-text">Thank you for your time!</div>
+  </aside>
+  <aside class="pfah-error">
+    <span class="pfah-error-text">Something wrong, please try again!</span>
+  </aside>
+</div>
+```
 
 ### Samples
 
@@ -106,20 +108,22 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 The inputs in PFAH can be either take full width or only half of the row.
 
-    <div class="pfah-row">
-      <div class="pfah-col">
-        ...
-      </div>
-    </div>
+```html
+<div class="pfah-row">
+  <div class="pfah-col">
     ...
-    <div class="pfah-row pfah-row-with-col">
-      <div class="pfah-col">
-        ...
-      </div>
-      <div class="pfah-col">
-        ...
-      </div>
-    </div>
+  </div>
+</div>
+...
+<div class="pfah-row pfah-row-with-col">
+  <div class="pfah-col">
+    ...
+  </div>
+  <div class="pfah-col">
+    ...
+  </div>
+</div>
+```
 
 ### Themes
 
