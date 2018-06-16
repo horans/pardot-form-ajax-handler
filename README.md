@@ -39,7 +39,7 @@ Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are good to go!
 
 ### Samples
 
-_(TO BE DONE)_
+Please check `demo.html`.
 
 ### Notices
 
@@ -74,6 +74,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 
 ```html
 <button data-toggle="pfah-popup" data-target="#my-form"></button>
+...
 <div class="pfah-popup" id="my-form">
   <div class="pfah-wrapper">
     ...
@@ -100,6 +101,25 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 * __`pfah.notpardot`__: a form `action` was not a proper Pardot iframe embed link.
 * __`pfah.submit`__: a form was submitted to Pardot with `.pfah-wrapper` __id__.
 * __`pfah.callback`__: received result from Pardot with `.pfah-wrapper` __id__ and "__done__/__error__" as extra parameters.
+
+### Layout
+
+The inputs in PFAH can be either take full width or only half of the row.
+
+    <div class="pfah-row">
+      <div class="pfah-col">
+        ...
+      </div>
+    </div>
+    ...
+    <div class="pfah-row pfah-row-with-col">
+      <div class="pfah-col">
+        ...
+      </div>
+      <div class="pfah-col">
+        ...
+      </div>
+    </div>
 
 ### Themes
 
@@ -131,6 +151,7 @@ Different forms can use their own themes even they are on the same page.
 __build 180616__
 
 * add icons
+* add demo
 * allow popup
 * allow half row column
 
