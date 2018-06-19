@@ -17,8 +17,9 @@
 
 ## Basic Usage
 
-Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are good to go!  
-`.pfah-done` or `.pfah-error` are shown when the result comes back from Pardot.
+* Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are good to go!
+* `.pfah-done` or `.pfah-error` are shown when the result comes back from Pardot.
+* With `.pfah-check-required`, PFAH will show "error" state if those checkboxes weren't selected.
 
 ### Template
 
@@ -106,7 +107,7 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 ### Layout
 
-The inputs in PFAH can be either take full width or only half of the row.
+1. `pfah-row-with-col`: The inputs in PFAH can be either take full width or only half of the row.
 
 ```html
 <div class="pfah-row">
@@ -124,6 +125,8 @@ The inputs in PFAH can be either take full width or only half of the row.
   </div>
 </div>
 ```
+
+2. `pfah-center`: Align text to center
 
 ### Themes
 
@@ -151,6 +154,11 @@ Different forms can use their own themes even they are on the same page.
 * HTML linter: [htmllint](https://github.com/htmllint/htmllint)
 
 ### Change logs
+
+__build 180619__
+
+* allow required checkbox
+* allow text center
 
 __build 180616__
 

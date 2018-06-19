@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170616                                   *
+*  update: 170619                                   *
 ****************************************************/
 
 /* global $ */
@@ -91,20 +91,27 @@ $(function () {
   // submit form
   $('body').on('submit', '.pfah-wrapper', function (e) {
     e.preventDefault()
-    if (!pfah.form.load) {
-      pfah.form.load = true
-      var f = $(this).find('.pfah-form')
+    // check required checkbox
+    var c = $(this).find('.pfah-check-required')
+    if (c.length > 0 && c.length !== c.filter(':checked').length) {
       pfah.form.id = $(this).attr('id')
-      f.find('[type="submit"]').attr('disabled', 'disabled')
-      window.console.log('[pfah] form submit')
-      $(this).trigger('pfah.submit', pfah.form.id)
-      // stackoverflow.com/questions/47047487/
-      $.ajax({
-        url: f.attr('action'),
-        method: 'POST',
-        data: f.serialize(),
-        dataType: 'jsonp'
-      })
+      pfah.callback({ result: 'error' })
+    } else {
+      if (!pfah.form.load) {
+        pfah.form.load = true
+        var f = $(this).find('.pfah-form')
+        pfah.form.id = $(this).attr('id')
+        f.find('[type="submit"]').attr('disabled', 'disabled')
+        window.console.log('[pfah] form submit')
+        $(this).trigger('pfah.submit', pfah.form.id)
+        // stackoverflow.com/questions/47047487/
+        $.ajax({
+          url: f.attr('action'),
+          method: 'POST',
+          data: f.serialize(),
+          dataType: 'jsonp'
+        })
+      }
     }
   })
 
