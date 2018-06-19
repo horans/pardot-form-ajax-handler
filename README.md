@@ -53,7 +53,7 @@ For more examples, please check `demo.html`.
 
 Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`.
 
-* __`data-state="done"`__: PFAH will save "done/error" state into `localStorage` with `[.pfah-wrapper]` ID.
+* __`data-state="done"`__: PFAH will save "done/error" state into `localStorage` with `.pfah-wrapper` ID.
   + This attribute can be either "__done__", "__error__" or "__all__".
   + With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
 * __`data-source="source"`__: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
@@ -61,14 +61,16 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
   + You have to add `source` or your customized field to Pardot form to make it work.
   + You have to make sure you haven't use the same name somewhere else in form.
 * __`data-style="no"`__: Use this option to complete disable the style of PFAH by not load css file at all.
+  + You can use this option if you decide to import css file by yourself.
   + This option will disable theme as well.
 * __`data-error="keep"`__: Use this option to reserve the space for error message.
+  + By default, PFAH will slide down the error message.
 
 ### Popup
 
 1. Wrap your `.pfah-wrapper` in `.pfah-popup`.
 2. Name your `.pfah-popup` with class or ID
-    * eg., `#my-form`.
+    * e.g., `#my-form`.
 3. Toggle popup with any element with `data-toggle="pfah-popup"`
     * Use `data-target` to link the element with PFAH
     * You can manually toggle popup by [bPopup](https://github.com/dinbror/bpopup).
