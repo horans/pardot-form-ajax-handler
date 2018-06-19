@@ -17,9 +17,8 @@
 
 ## Basic Usage
 
-* Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are good to go!
-* `.pfah-done` or `.pfah-error` are shown when the result comes back from Pardot.
-* With `.pfah-check-required`, PFAH will show "error" state if those checkboxes weren't selected.
+Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are _good to go_!  
+`.pfah-done` or `.pfah-error` are shown when the result comes back from Pardot.
 
 ### Template
 
@@ -42,7 +41,7 @@
 
 ### Samples
 
-Please check `demo.html`.
+For more examples, please check `demo.html`.
 
 ### Notices
 
@@ -85,10 +84,22 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 </div>
 ```
 
+### Checkbox
+
+PFAH has a customized checkbox style.  
+With `.pfah-check-required`, PFAH will show "error" state if those checkboxes were not selected.
+
+```html
+<label class="pfah-check-item">
+  <input class="pfah-check-input pfah-check-required" type="checkbox" checked>
+  <span class="pfah-check-icon pfah-icon"></span>
+  <span class="pfah-check-label">Agree terms.</span>
+</label>
+```
+
 ### Functions
 
-PFAH will initialize automatically when `DOM` is ready,  
-however you can manually perform it if forms are loaded into page asynchronously.
+PFAH will initialize automatically when `DOM` is ready, however you can manually perform it if forms are loaded into page asynchronously.
 
 * __`pfah.init()`__:
   + Load default form style (and extra theme).
@@ -107,7 +118,7 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 ### Layout
 
-1. `pfah-row-with-col`: The inputs in PFAH can be either take full width or only half of the row.
+1. `.pfah-row-with-col`: The inputs in PFAH can be either take full width or only half of the row.
 
 ```html
 <div class="pfah-row">
@@ -126,7 +137,7 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 </div>
 ```
 
-2. `pfah-center`: Align text to center
+2. `.pfah-center`: Align text to center.
 
 ### Themes
 
