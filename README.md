@@ -86,7 +86,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 ### Checkbox
 
 PFAH has a customized checkbox style.  
-With `.pfah-check-required`, PFAH will show "error" state if those checkboxes were not selected.
+With `.pfah-check-required`, PFAH will show "error" state if those checkboxes were not selected on submit.
 
 ```html
 <label class="pfah-check-item">
@@ -98,8 +98,7 @@ With `.pfah-check-required`, PFAH will show "error" state if those checkboxes we
 
 ### Functions
 
-PFAH will initialize automatically when `DOM` is ready.  
-However you can manually perform it if forms are loaded into page asynchronously.
+PFAH will initialize automatically when `DOM` is ready. However you can manually perform it if forms are loaded into page asynchronously.
 
 * __`pfah.init()`__:
   + Load default form style (and extra theme).
@@ -108,12 +107,11 @@ However you can manually perform it if forms are loaded into page asynchronously
   + Show stored state.
   + Load vendor js if there is a form shown in popup.
 
-PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback-error.js` automatically after a form is submitted.  
-However you can manually call it as you wish.
+PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback-error.js` automatically after a form is submitted. However you can manually if you want to simulate the form result.
 
 * __`pfah.callback({ result: state })`__:
   + Trigger callback events.
-  + `state` can be "done" or "error".
+  + `state` can be "__done__" or "__error__".
   + `pfah.form.id` needs to be indicated before your call.
 
 ### Events
@@ -145,7 +143,7 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 </div>
 ```
 
-*. `.pfah-center`: Align text to center.
+* `.pfah-center`: Align text to center.
 
 ```html
 <div class="pfah-title pfah-center">My Form</div>
@@ -182,6 +180,8 @@ __build 180619__
 
 * allow required checkbox
 * allow text center
+
+---
 
 __build 180616__
 
