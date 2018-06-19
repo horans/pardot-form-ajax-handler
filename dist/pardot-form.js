@@ -91,16 +91,15 @@ $(function () {
   // submit form
   $('body').on('submit', '.pfah-wrapper', function (e) {
     e.preventDefault()
-    // check required checkbox
-    var c = $(this).find('.pfah-check-required')
-    if (c.length > 0 && c.length !== c.filter(':checked').length) {
+    if (!pfah.form.load) {
       pfah.form.id = $(this).attr('id')
-      pfah.callback({ result: 'error' })
-    } else {
-      if (!pfah.form.load) {
+      // check required checkbox
+      var c = $(this).find('.pfah-check-required')
+      if (c.length > 0 && c.length !== c.filter(':checked').length) {
+        pfah.callback({ result: 'error' })
+      } else {
         pfah.form.load = true
         var f = $(this).find('.pfah-form')
-        pfah.form.id = $(this).attr('id')
         f.find('[type="submit"]').attr('disabled', 'disabled')
         window.console.log('[pfah] form submit')
         $(this).trigger('pfah.submit', pfah.form.id)

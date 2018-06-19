@@ -25,9 +25,8 @@ Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are _good to go_!
 ```html
 <div class="pfah-wrapper">
   <form action="https://go.pardot.com/l/285052/2018-02-23/22nrnw" class="pfah-form">
-    <input type="email" class="pfah-input" name="email" />
-    <input type="text" class="pfah-input" name="firstname" />
-    <input type="text" class="pfah-input" name="lastname" />
+    <input type="email" class="pfah-input" name="email" required />
+    <input type="text" class="pfah-input" name="name" />
     <button type="submit" class="pfah-input">Submit</button>
   </form>
   <aside class="pfah-done">
@@ -72,7 +71,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
     * eg., `#my-form`.
 3. Toggle popup with any element with `data-toggle="pfah-popup"`
     * Use `data-target` to link the element with PFAH
-    * You can manually toggle popup by [bPopup()](https://github.com/dinbror/bpopup).
+    * You can manually toggle popup by [bPopup](https://github.com/dinbror/bpopup).
 
 ```html
 <button data-toggle="pfah-popup" data-target="#my-form"></button>
@@ -99,7 +98,8 @@ With `.pfah-check-required`, PFAH will show "error" state if those checkboxes we
 
 ### Functions
 
-PFAH will initialize automatically when `DOM` is ready, however you can manually perform it if forms are loaded into page asynchronously.
+PFAH will initialize automatically when `DOM` is ready.  
+However you can manually perform it if forms are loaded into page asynchronously.
 
 * __`pfah.init()`__:
   + Load default form style (and extra theme).
@@ -107,6 +107,14 @@ PFAH will initialize automatically when `DOM` is ready, however you can manually
   + Generate ID.
   + Show stored state.
   + Load vendor js if there is a form shown in popup.
+
+PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback-error.js` automatically after a form is submitted.  
+However you can manually call it as you wish.
+
+* __`pfah.callback({ result: state })`__:
+  + Trigger callback events.
+  + `state` can be "done" or "error".
+  + `pfah.form.id` needs to be indicated before your call.
 
 ### Events
 
@@ -118,7 +126,7 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 ### Layout
 
-1. `.pfah-row-with-col`: The inputs in PFAH can be either take full width or only half of the row.
+* `.pfah-row-with-col`: The inputs in PFAH can be either take full width or only half of the row.
 
 ```html
 <div class="pfah-row">
@@ -137,7 +145,11 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 </div>
 ```
 
-2. `.pfah-center`: Align text to center.
+*. `.pfah-center`: Align text to center.
+
+```html
+<div class="pfah-title pfah-center">My Form</div>
+```
 
 ### Themes
 
