@@ -45,7 +45,8 @@ For more examples, please check `demo.html`.
 ### Notices
 
 * Make sure that you have `[type="submit"]` button/input to submit your form.
-* Multiple forms are supported.
+* Please __DO NOT__ give ID to `.pfah-wrapper`, PFAH will ID it automatically.
+* Multiple forms are supported (different Pardot forms).
 
 ## Advanced Usage
 
@@ -71,6 +72,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 1. Wrap your `.pfah-wrapper` in `.pfah-popup`.
 2. Name your `.pfah-popup` with class or ID
     * e.g., `#my-form`.
+    * Please __DO NOT__ name it with prefix of `pfah-`
 3. Toggle popup with any element with `data-toggle="pfah-popup"`
     * Use `data-target` to link the element with PFAH
     * You can manually toggle popup by [bPopup](https://github.com/dinbror/bpopup).

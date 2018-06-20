@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170619                                   *
+*  update: 170620                                   *
 ****************************************************/
 
 /* global $ */
@@ -55,8 +55,8 @@ pfah.init = function () {
       } else {
         // add source track
         var s = $(this).data('source')
-        if (s && $(this).find('[name="' + s + '"]').length === 0) {
-          $(this).prepend('<input type="hidden" name="' + s + '" value="' + window.location.href + '" />')
+        if (s && $(this).find('.pfah-form').find('[name="' + s + '"]').length === 0) {
+          $(this).find('.pfah-form').prepend('<input type="hidden" name="' + s + '" value="' + window.location.href + '" />')
         }
         // add id
         var i = p.substring(p.lastIndexOf('/') + 1)

@@ -3,7 +3,7 @@
 *  description: main style                          *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170619                                   *
+*  update: 170620                                   *
 ****************************************************/
 /* color */
 /* csslint ignore: start */
@@ -17,6 +17,7 @@
 .pfah-transition { -webkit-transition: all ease-out .2s; -o-transition: all ease-out .2s; -moz-transition: all ease-out .2s; transition: all ease-out .2s; }
 .pfah-icon { background-position: center; background-repeat: no-repeat; background-size: contain; display: inline-block; height: 14px; width: 14px; }
 .pfah-center { text-align: center; }
+[data-toggle="pfah-popup"] { cursor: pointer; } /* csslint allow: unqualified-attributes */
 /* form */
 .pfah-title { font-size: 1.125rem; font-weight: bold; line-height: 1.33; margin-bottom: 1.25rem; }
 .pfah-desc { line-height: 1.25rem; margin: -1.25rem 0 1.25rem; }
@@ -58,7 +59,7 @@ textarea.pfah-input { border: solid 1px var(--pfah-border); font-family: inherit
 .pfah-result-error .pfah-error { max-height: 5rem; }
 /* popup */
 .pfah-popup { display: none; position: relative; }
-.pfah-close { background-image: url("asset/icon-close.svg"); cursor: pointer; height: 1rem; position: absolute; right: 1rem; top: 1rem; width: 1rem; z-index: 2; }
+.pfah-close { background-image: url("asset/icon-close.svg"); cursor: pointer; height: 1rem; position: absolute; right: 1rem; top: 1rem; width: 1rem; z-index: 3; }
 .pfah-close:hover { background-color: var(--pfah-primary); background-image: none; -webkit-mask: url("asset/icon-close.svg"); mask: url("asset/icon-close.svg"); } /* csslint allow: known-properties */
 @media (min-width: 768px) {
 .pfah-row-with-col { margin: 0 -.625rem 1.25rem; }
