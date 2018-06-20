@@ -59,8 +59,8 @@ textarea.pfah-input { border: solid 1px var(--pfah-border); font-family: inherit
 .pfah-result-error .pfah-error { max-height: 5rem; }
 /* popup */
 .pfah-popup { display: none; position: relative; }
-.pfah-close { background-image: url("asset/icon-close.svg"); cursor: pointer; height: 1rem; position: absolute; right: 1rem; top: 1rem; width: 1rem; z-index: 3; }
-.pfah-close:hover { background-color: var(--pfah-primary); background-image: none; -webkit-mask: url("asset/icon-close.svg"); mask: url("asset/icon-close.svg"); } /* csslint allow: known-properties */
+.pfah-close-icon { background-image: url("asset/icon-close.svg"); cursor: pointer; height: 1rem; position: absolute; right: 1rem; top: 1rem; width: 1rem; z-index: 3; }
+.pfah-close-icon:hover { background-color: var(--pfah-primary); background-image: none; -webkit-mask: url("asset/icon-close.svg"); mask: url("asset/icon-close.svg"); } /* csslint allow: known-properties */
 @media (min-width: 768px) {
 .pfah-row-with-col { margin: 0 -.625rem 1.25rem; }
 .pfah-row-with-col > .pfah-col { float: left; padding: 0 .625rem; width: 50%; } /* csslint allow: box-model */

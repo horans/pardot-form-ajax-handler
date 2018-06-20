@@ -76,12 +76,14 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
 3. Toggle popup with any element with `data-toggle="pfah-popup"`
     * Use `data-target` to link the element with PFAH
     * You can manually toggle popup by [bPopup](https://github.com/dinbror/bpopup).
+    * Clicking on any elements with `.pfah-close` will close current popup.
 
 ```html
 <button data-toggle="pfah-popup" data-target="#my-form"></button>
 ...
 <div class="pfah-popup" id="my-form">
   <div class="pfah-wrapper">
+    <i class="pfah-close-icon pfah-close pfah-icon"></i>
     ...
   </div>
 </div>
@@ -179,6 +181,12 @@ Different forms can use their own themes even they are on the same page.
 * HTML linter: [htmllint](https://github.com/htmllint/htmllint)
 
 ### Change logs
+
+__build 180620__
+
+* allow close popup
+
+---
 
 __build 180619__
 
