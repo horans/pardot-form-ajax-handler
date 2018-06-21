@@ -1,6 +1,6 @@
 # Pardot Form AJAX Handler
 
-"Pardot Form AJAX Handler", or "PFAH" in short, will help to you setup an `AJAX` submission for [Pardot](https://www.pardot.com/) forms, which were designed to submit with `POST` in `iframe`. With `JSONP`, we can even handle the result from Pardot's redirect.
+"Pardot Form AJAX Handler", or "PFAH" in short, will help to you setup an `AJAX` submission for Salesforce [Pardot](https://www.pardot.com/) forms, which were designed to submit with `POST` in `iframe`. With `JSONP`, we can even handle the result from Pardot's redirect.
 
 ## Install
 
@@ -77,6 +77,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
     * Use `data-target` to link the element with PFAH
     * You can manually toggle popup by [bPopup](https://github.com/dinbror/bpopup).
     * Clicking on any elements with `.pfah-close` will close current popup.
+    * Use `.pfah-close-delay` on `<a>` if you decide to download then close popup.
 
 ```html
 <button data-toggle="pfah-popup" data-target="#my-form"></button>

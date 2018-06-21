@@ -3,7 +3,7 @@
 *  description: main style                          *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170620                                   *
+*  update: 170621                                   *
 ****************************************************/
 /* color */
 /* csslint ignore: start */
@@ -41,6 +41,8 @@ textarea.pfah-input { border: solid 1px var(--pfah-border); font-family: inherit
 .pfah-button { background-color: var(--pfah-secondary); border: none; border-radius: .25rem; box-shadow: 0 1rem 1.5rem 0 rgba(0, 0, 0, 0.2); color: var(--pfah-white); cursor: pointer; display: block; font-size: 1.125rem; font-weight: bold; line-height: 2.75rem; text-align: center; width: 100%; } /* csslint allow: known-properties */
 .pfah-button:disabled { background-color: var(--pfah-cancel); cursor: not-allowed; } /* csslint allow: known-properties */
 .pfah-button:hover:not(:disabled) { box-shadow: 0 .8rem 1.2rem 0 rgba(0, 0, 0, 0.2); -webkit-transform: translateY(1px); -moz-transform: translateY(1px); -ms-transform: translateY(1px); -o-transform: translateY(1px); transform: translateY(1px); }
+.pfah-extra { color: var(--pfah-secondary); font-size: .875rem; font-weight: bold; margin: 1.25rem 0 .625rem; } /* csslint allow: known-properties */
+.pfah-extra a { text-decoration: none; }
 /* result */
 .pfah-done,
 .pfah-error { opacity: 0; z-index: -2; }

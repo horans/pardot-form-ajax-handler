@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170620                                   *
+*  update: 170621                                   *
 ****************************************************/
 
 /* global $ */
@@ -134,6 +134,13 @@ $(function () {
   // open popup
   $('body').on('click', '[data-toggle="pfah-popup"]', function () {
     var t = $(this).data('target')
-    if (t) $(t).bPopup({ closeClass: 'pfah-close' })
+    if (t) pfah.popup = $(t).bPopup({ closeClass: 'pfah-close' })
+  })
+
+  // close popup with delay
+  $('body').on('click', '.pfah-close-delay', function () {
+    setTimeout(function () {
+      pfah.popup.close()
+    }, 200)
   })
 })
