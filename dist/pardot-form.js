@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170621                                   *
+*  update: 170626                                   *
 ****************************************************/
 
 /* global $ */
@@ -33,6 +33,15 @@ pfah.asset = function (type, asset) {
   }
 }
 
+// set value
+pfah.remember = function () {
+  $('.pfah-input').each(function () {
+    if ($(this).closest('.pfah-wrapper').data('remember') !== 'no') {
+      $(this).val(window.localStorage.getItem('pfah-' + $(this).attr('name')))
+    }
+  })
+}
+
 // initialize
 pfah.init = function () {
   if ($('.pfah-wrapper').length > 0) {
@@ -60,7 +69,7 @@ pfah.init = function () {
         }
         // add id
         var i = p.substring(p.lastIndexOf('/') + 1)
-        $(this).attr('id', 'pfah-' + i)
+        $(this).attr('data-id', 'pfah-' + i)
         // load state
         var l = window.localStorage.getItem('pfah-' + i)
         if (l) $(this).addClass('pfah-result-' + l)
@@ -69,6 +78,8 @@ pfah.init = function () {
   }
   // popup
   if ($('.pfah-popup').length > 0) pfah.asset('vendor', 'jquery.bpopup')
+  // set value
+  pfah.remember()
 }
 
 // form state
@@ -79,7 +90,7 @@ pfah.form = {
 
 // callback
 pfah.callback = function (res) {
-  $('#' + pfah.form.id).trigger('pfah.callback', [pfah.form.id, res.result])
+  $('[data-id="' + pfah.form.id + '"]:first').trigger('pfah.callback', [pfah.form.id, res.result])
   window.console.log('[pfah] callback ' + res.result)
 }
 
@@ -92,7 +103,7 @@ $(function () {
   $('body').on('submit', '.pfah-wrapper', function (e) {
     e.preventDefault()
     if (!pfah.form.load) {
-      pfah.form.id = $(this).attr('id')
+      pfah.form.id = $(this).data('id')
       // check required checkbox
       var c = $(this).find('.pfah-check-required')
       if (c.length > 0 && c.length !== c.filter(':checked').length) {
@@ -116,9 +127,9 @@ $(function () {
 
   // callback handler
   $('body').on('pfah.callback', function (e, id, result) {
-    var s = $('#' + id).data('state').toLowerCase()
+    var s = $('[data-id="' + id + '"]').data('state').toLowerCase()
     if (s && (result === s || s === 'all')) window.localStorage.setItem(pfah.form.id, result)
-    $('#' + pfah.form.id).removeClass('pfah-result-error pfah-result-done').addClass('pfah-result-' + result)
+    $('[data-id="' + pfah.form.id + '"]').removeClass('pfah-result-error pfah-result-done').addClass('pfah-result-' + result)
       .find('[type="submit"]').removeAttr('disabled')
     pfah.form.id = ''
     pfah.form.load = false
@@ -128,7 +139,7 @@ $(function () {
   $('body').on('click', '.pfah-error', function () {
     var f = $(this).closest('.pfah-wrapper')
     f.removeClass('pfah-result-error')
-    window.localStorage.removeItem(f.attr('id'))
+    window.localStorage.removeItem(f.data('id'))
   })
 
   // open popup
@@ -142,5 +153,13 @@ $(function () {
     setTimeout(function () {
       pfah.popup.close()
     }, 200)
+  })
+
+  // remeber inputs
+  $('body').on('change paste keyup', '.pfah-input', function () {
+    if ($(this).closest('.pfah-wrapper').data('remember') !== 'no') {
+      window.localStorage.setItem('pfah-' + $(this).attr('name'), $(this).val())
+      pfah.remember()
+    }
   })
 })

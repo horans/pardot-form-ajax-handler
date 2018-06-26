@@ -46,7 +46,7 @@ For more examples, please check `demo.html`.
 
 * Make sure that you have `[type="submit"]` button/input to submit your form.
 * Please __DO NOT__ give ID to `.pfah-wrapper`, PFAH will ID it automatically.
-* Multiple forms are supported (different Pardot forms).
+* Multiple forms are supported, while same forms share same states.
 
 ## Advanced Usage
 
@@ -66,6 +66,8 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
   + This option will disable theme as well.
 * __`data-error="keep"`__: Use this option to reserve the space for error message.
   + By default, PFAH will slide down the error message.
+* __`data-remember="no"`__: Use this option to disable input auto-complete function.
+  + By default, PFAH will keep value you input in `localStorage` with same name.
 
 ### Popup
 
@@ -182,6 +184,13 @@ Different forms can use their own themes even they are on the same page.
 * HTML linter: [htmllint](https://github.com/htmllint/htmllint)
 
 ### Change logs
+
+__build 180626__
+
+* allow same forms
+* allow remember input
+
+---
 
 __build 180620__
 
