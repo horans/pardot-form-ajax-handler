@@ -3,7 +3,7 @@
 *  description: main style                          *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170621                                   *
+*  update: 170629                                   *
 ****************************************************/
 /* color */
 /* csslint ignore: start */
@@ -17,6 +17,7 @@
 .pfah-transition { -webkit-transition: all ease-out .2s; -o-transition: all ease-out .2s; -moz-transition: all ease-out .2s; transition: all ease-out .2s; }
 .pfah-icon { background-position: center; background-repeat: no-repeat; background-size: contain; display: inline-block; height: 14px; width: 14px; }
 .pfah-center { text-align: center; }
+.pfah-hidden { display: none; height: 0; margin: 0; padding: 0; width: 0; z-index: -1; }
 [data-toggle="pfah-popup"] { cursor: pointer; } /* csslint allow: unqualified-attributes */
 /* form */
 .pfah-title { font-size: 1.125rem; font-weight: bold; line-height: 1.33; margin-bottom: 1.25rem; }

@@ -1,0 +1,16 @@
+  /****************************************************
+  *  project: pardot form ajax handler                *
+  *  description: demo style                          *
+  *  author: horans@gmail.com                         *
+  *  url: github.com/horans/pardot-form-ajax-handler  *
+  *  update: 170629                                   *
+  ****************************************************/
+
+  main { background-color: #f9f9f9; min-height: 100vh; }
+  nav, section { margin: 0 auto; max-width: 1000px; }
+  hr { margin-top: 2rem; opacity: .5; }
+  small { color: gray; font-weight: normal; }
+  samp { font-family: sans-serif; }
+
+  .demo { margin: 0 auto; max-width: 385px; }
+  .demo-wide { max-width: 508px; }

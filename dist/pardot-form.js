@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170626                                   *
+*  update: 170629                                   *
 ****************************************************/
 
 /* global $ */
@@ -30,6 +30,9 @@ pfah.asset = function (type, asset) {
       a.href = pfah.path + 'pardot-form' + (asset === 'pfah' ? '' : ('-' + asset)) + '.css'
     }
     document.getElementsByTagName('head')[0].appendChild(a)
+    if (type === 'vendor') {
+      $('body').trigger('pfah.vendor', asset)
+    }
   }
 }
 
@@ -78,6 +81,8 @@ pfah.init = function () {
   }
   // popup
   if ($('.pfah-popup').length > 0) pfah.asset('vendor', 'jquery.bpopup')
+  // debounce
+  if ($('.pfah-wrapper[data-remember="no"]').length < $('.pfah-wrapper').length) pfah.asset('vendor', 'jquery.ba-throttle-debounce')
   // set value
   pfah.remember()
 }
@@ -154,12 +159,21 @@ $(function () {
       pfah.popup.close()
     }, 200)
   })
+})
 
-  // remeber inputs
-  $('body').on('change paste keyup', '.pfah-input', function () {
-    if ($(this).closest('.pfah-wrapper').data('remember') !== 'no') {
-      window.localStorage.setItem('pfah-' + $(this).attr('name'), $(this).val())
-      pfah.remember()
-    }
-  })
+// remeber inputs
+$('body').on('pfah.vendor', function (e, asset) {
+  if (asset === 'jquery.ba-throttle-debounce') {
+    var cb = setInterval(function () {
+      if (typeof $.debounce === 'function') {
+        clearInterval(cb)
+        $('body').on('change paste keyup', '.pfah-input', $.debounce(700, function () {
+          if ($(this).closest('.pfah-wrapper').data('remember') !== 'no') {
+            window.localStorage.setItem('pfah-' + $(this).attr('name'), $(this).val())
+            pfah.remember()
+          }
+        }))
+      }
+    }, 100)
+  }
 })

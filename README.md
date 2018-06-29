@@ -40,7 +40,11 @@ Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are _good to go_!
 
 ### Samples
 
-For more examples, please check `demo.html`.
+For more examples, please check `demo` folder.
+
+* __`demo-basic.html`__: basic inpage and popup forms.
+* __`demo-bpopup.html`__: manually trigger popup when blocked.
+* __`demo-event.html`__: form with event controls.
 
 ### Notices
 
@@ -127,6 +131,7 @@ PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback
 
 PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
+* __`pfah.vendor`__: a vendor of PFAH is loading to page with its name.
 * __`pfah.notpardot`__: a form `action` was not a proper Pardot iframe embed link.
 * __`pfah.submit`__: a form was submitted to Pardot with `.pfah-wrapper` __id__.
 * __`pfah.callback`__: received result from Pardot with `.pfah-wrapper` __id__ and "__done__/__error__" as extra parameters.
@@ -184,6 +189,13 @@ Different forms can use their own themes even they are on the same page.
 * HTML linter: [htmllint](https://github.com/htmllint/htmllint)
 
 ### Change logs
+
+__build 180629__
+
+* debouce input
+* more samples
+
+---
 
 __build 180626__
 
