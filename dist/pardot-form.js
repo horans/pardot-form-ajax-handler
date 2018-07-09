@@ -100,6 +100,11 @@ pfah.callback = function (res) {
   window.console.log('[pfah] callback ' + res.result)
 }
 
+// popup
+pfah.popup = function (tar) {
+  tar.trigger('pfah.callpopup')
+}
+
 // document ready
 $(function () {
   // initialize

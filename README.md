@@ -50,7 +50,6 @@ For more examples, please check `demo` folder.
 ### Notices
 
 * Make sure that you have `[type="submit"]` button/input to submit your form.
-* Please __DO NOT__ give ID to `.pfah-wrapper`, PFAH will ID it automatically.
 * Multiple forms are supported, while same forms share same states.
 
 ## Advanced Usage
@@ -112,33 +111,31 @@ With `.pfah-check-required`, PFAH will show "error" state if those checkboxes we
 
 ### Functions
 
-PFAH will initialize automatically when `DOM` is ready. However you can manually perform it if forms are loaded into page asynchronously.
-
-* __`pfah.init()`__:
+* __`pfah.init()`__: PFAH will initialize automatically when `DOM` is ready. However you can manually perform it if forms are loaded into page asynchronously.
   + Load default form style (and extra theme).
   + Check form action url.
   + Generate ID.
   + Show stored state.
   + Load vendor js if there is a form shown in popup.
 
-PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback-error.js` automatically after a form is submitted. However you can manually if you want to simulate the form result.
-
-* __`pfah.callback({ result: state })`__:
+* __`pfah.callback({ result: state })`__: PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback-error.js` automatically after a form is submitted. However you can manually if you want to simulate the form result.
   + Trigger callback events.
   + `state` can be "__done__" or "__error__".
   + `pfah.form.id` needs to be indicated before your call.
 
+* __`pfah.popup(target)`__: If your `click` event is blocked on element, you can try to call it manually.
+
 ### Events
 
-PFAH will log to `console` when following events happen to `.pfah-wrapper`:
+PFAH will log to `console` when some of following events happen to `.pfah-wrapper`:
 
-* __`pfah.vendor`__: a vendor of PFAH is loading to page, with its name.
 * __`pfah.notpardot`__: a form `action` was not a proper Pardot iframe embed link.
+* __`pfah.vendor`__: a vendor of PFAH is loading to page, with its name.
 * __`pfah.ready`__: a form is ready to use, with `.pfah-wrapper` __id__.
 * __`pfah.submit`__: a form was submitted to Pardot, with `.pfah-wrapper` __id__.
-* __`pfah.callback`__: received result from Pardot, with `.pfah-wrapper` __id__ and "__done__/__error__" state.
-* __`pfah.popup__`: a popup is triggered by user, with `.pfah-wrapper` __id__ and "__open__/__close__" state.
-* __`pfah.callpopup`: manually trigger on an element to ask PFAH show popup.
+* __`pfah.callback`__: received result from Pardot, with `.pfah-wrapper` __id__ and "__done__/__error__" result.
+* __`pfah.popup__`__: a popup is triggered by user, with `.pfah-wrapper` __id__ and "__open__/__close__" state.
+* __`pfah.callpopup`__: manually trigger on an element to ask PFAH show popup.
 
 ### Layout
 
@@ -165,6 +162,12 @@ PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
 ```html
 <div class="pfah-title pfah-center">My Form</div>
+```
+
+* `.pfah-hidden`: Hide something from user.
+
+```html
+<div class="pfah-hidden">Secret</div>
 ```
 
 ### Themes

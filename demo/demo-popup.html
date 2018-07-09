@@ -113,23 +113,13 @@
   <script src="../dist/pardot-form.js"></script>
 
 <script>
-/* global $ */
-// focus on input when open
-$('body').on('pfah.popup', function (e, id, state) {
-  var i = 'pfah-2yqqct'
-  if (id === i && state === 'open') {
-    setTimeout(function () {
-      $('[data-id="' + i + '"]').find('[name="fullname"]').focus()
-    }, 500)
-  }
-})
-
+/* global $ pfah */
 // button click event blocked
 $('section:eq(1)').on('click', function (e) { e.stopPropagation() })
 
 // manual popup
 $('section:eq(1) button:eq(1)').on('click', function () {
-  $(this).trigger('pfah.callpopup')
+  pfah.popup($(this))
 })
 </script>
   </body>
