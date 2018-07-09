@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pardot Form AJAX Handler</title>
+    <link rel="stylesheet" href="./demo.css">
+    <link rel="stylesheet" href="../dist/pardot-form.css">
+  </head>
+  <body>
+
+  <!--
+  /****************************************************
+  *  project: pardot form ajax handler                *
+  *  description: demo custom css                     *
+  *  author: horans@gmail.com                         *
+  *  url: github.com/horans/pardot-form-ajax-handler  *
+  *  update: 170709                                   *
+  ****************************************************/
+  -->
+
+  <main>
+    <nav>
+      <h1>Pardot Form AJAX Handler <small>(Demo CSS)</small></h1>
+    </nav>
+
+    <section>
+      <h2>Form with preloaded style</h2>
+      <samp>
+        <div class="pfah-wrapper demo" data-state="no" data-error="keep" data-source="source" data-style="no">
+          <form action="https://go.pardot.com/l/285052/2018-02-23/22nrnw" class="pfah-form">
+            <div class="pfah-title">Increase your productivity today.</div>
+            <div class="pfah-row">
+              <label class="pfah-label">Name <sup>*</sup></label>
+              <input type="text" class="pfah-input" name="fullname" placeholder="Please enter your name." />
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">Email <sup>*</sup></label>
+              <input type="email" class="pfah-input" name="email" placeholder="Please enter a valid email adress." />
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">Number of Licenses <sup>*</sup></label>
+              <input type="number" class="pfah-input" name="licenses" placeholder="1" />
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">Industry (Optional)</label>
+              <div class="pfah-select">
+                <select class="pfah-input" name="industry">
+                  <option value="0" selected disabled>Select</option>
+                  <option value="1">IT</option>
+                  <option value="2">Retail</option>
+                </select>
+                <i class="pfah-select-icon pfah-icon pfah-transition"></i>
+              </div>
+            </div>
+            <div class="pfah-row">
+              <label class="pfah-label">How can we help? (Optional)</label>
+              <textarea name="description" class="pfah-input" rows="2" placeholder="Your thoughts..."></textarea>
+            </div>
+            <div class="pfah-row pfah-group">
+              <label class="pfah-check-item">
+                <input class="pfah-check-input pfah-check-required" type="checkbox" checked>
+                <span class="pfah-check-icon pfah-icon"></span>
+                <span class="pfah-check-label">By clicking the button, I agree to the <a href="../readme.md" target="blank">privacy policy</a> and to hear about offers or services.</span>
+              </label>
+            </div>
+            <div class="pfah-action">
+              <button type="submit" class="pfah-button pfah-transition">TALK TO US</button>
+            </div>
+          </form>
+          <aside class="pfah-done pfah-transition">
+            <div class="pfah-done-wrapper">
+              <i class="pfah-done-icon pfah-icon"></i>
+              <div class="pfah-done-heading">Thank you for contacting us.</div>
+              <div class="pfah-done-text">We have received your enquiry and will respond to you soon.</div>
+            </div>
+          </aside>
+          <aside class="pfah-error pfah-transition">
+            <i class="pfah-error-icon pfah-icon"></i>
+            <span class="pfah-error-text">Submission failed.Please enter the required information and try again.</span>
+          </aside>
+        </div>
+      </samp>
+      <hr>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="../dist/pardot-form.js"></script>
+  </body>
+</html>

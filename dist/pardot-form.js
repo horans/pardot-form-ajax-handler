@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170629                                   *
+*  update: 170709                                   *
 ****************************************************/
 
 /* global $ */
@@ -76,6 +76,7 @@ pfah.init = function () {
         // load state
         var l = window.localStorage.getItem('pfah-' + i)
         if (l) $(this).addClass('pfah-result-' + l)
+        $(this).trigger('pfah.ready', $(this).attr('data-id'))
       }
     })
   }
@@ -148,15 +149,29 @@ $(function () {
   })
 
   // open popup
-  $('body').on('click', '[data-toggle="pfah-popup"]', function () {
+  $('body').on('click pfah.callpopup', '[data-toggle="pfah-popup"]', function () {
     var t = $(this).data('target')
-    if (t) pfah.popup = $(t).bPopup({ closeClass: 'pfah-close' })
+    if (t) {
+      var f = $(t).find('.pfah-wrapper')
+      if (f.length > 0) {
+        $(t).bPopup({
+          closeClass: 'pfah-close',
+          onOpen: function () {
+            f.trigger('pfah.popup', [f.attr('data-id'), 'open'])
+          },
+          onClose: function () {
+            f.trigger('pfah.popup', [f.attr('data-id'), 'close'])
+          }
+        })
+      }
+    }
   })
 
   // close popup with delay
   $('body').on('click', '.pfah-close-delay', function () {
+    var t = $(this)
     setTimeout(function () {
-      pfah.popup.close()
+      t.closest('.pfah-popup').find('.pfah-close').click()
     }, 200)
   })
 })

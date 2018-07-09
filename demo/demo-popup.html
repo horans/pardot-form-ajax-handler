@@ -11,22 +11,28 @@
   <!--
   /****************************************************
   *  project: pardot form ajax handler                *
-  *  description: demo basic                          *
+  *  description: demo popup                          *
   *  author: horans@gmail.com                         *
   *  url: github.com/horans/pardot-form-ajax-handler  *
-  *  update: 170629                                   *
+  *  update: 170709                                   *
   ****************************************************/
   -->
 
   <main>
     <nav>
-      <h1>Pardot Form AJAX Handler <small>(Demo bPopup)</small></h1>
+      <h1>Pardot Form AJAX Handler <small>(Demo Popup)</small></h1>
     </nav>
 
     <section>
-      <h2>Manual popup form</h2>
+      <h2>Normal popup form</h2>
       <button class="btn btn-outline-info" data-toggle="pfah-popup" data-target="#popup-form">Will Show Form</button>
+      <hr>
+    </section>
+
+    <section>
+      <h2>Manual popup form</h2>
       <button class="btn btn-outline-info" data-toggle="pfah-popup" data-target="#popup-form">Will NOT Show Form</button>
+      <button class="btn btn-outline-info" data-toggle="pfah-popup" data-target="#popup-form">Will Show Form</button>
     </section>
 
     <samp>
@@ -39,7 +45,7 @@
             <div class="pfah-row pfah-row-with-col">
               <div class="pfah-col">
                 <label class="pfah-label">Name <sup>*</sup></label>
-                <input type="text" class="pfah-input" name="fulltname" placeholder="Please enter your name." />
+                <input type="text" class="pfah-input" name="fullname" placeholder="Please enter your name." />
               </div>
               <div class="pfah-col">
                 <label class="pfah-label">Email <sup>*</sup></label>
@@ -107,13 +113,23 @@
   <script src="../dist/pardot-form.js"></script>
 
 <script>
-/* global $ pfah */
+/* global $ */
+// focus on input when open
+$('body').on('pfah.popup', function (e, id, state) {
+  var i = 'pfah-2yqqct'
+  if (id === i && state === 'open') {
+    setTimeout(function () {
+      $('[data-id="' + i + '"]').find('[name="fullname"]').focus()
+    }, 500)
+  }
+})
+
 // button click event blocked
-$('section').on('click', function (e) { e.stopPropagation() })
+$('section:eq(1)').on('click', function (e) { e.stopPropagation() })
 
 // manual popup
-$('section button:first').on('click', function () {
-  pfah.popup = $($(this).data('target')).bPopup({ closeClass: 'pfah-close' })
+$('section:eq(1) button:eq(1)').on('click', function () {
+  $(this).trigger('pfah.callpopup')
 })
 </script>
   </body>

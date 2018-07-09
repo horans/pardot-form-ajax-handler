@@ -43,8 +43,9 @@ Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are _good to go_!
 For more examples, please check `demo` folder.
 
 * __`demo-basic.html`__: basic inpage and popup forms.
-* __`demo-bpopup.html`__: manually trigger popup when blocked.
+* __`demo-css.html`__: form with preloaded style.
 * __`demo-event.html`__: form with event controls.
+* __`demo-popup.html`__: manually trigger popup when blocked.
 
 ### Notices
 
@@ -81,7 +82,7 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
     * Please __DO NOT__ name it with prefix of `pfah-`
 3. Toggle popup with any element with `data-toggle="pfah-popup"`
     * Use `data-target` to link the element with PFAH
-    * You can manually toggle popup by [bPopup](https://github.com/dinbror/bpopup).
+    * You can manually toggle popup if `click` event is blocked.
     * Clicking on any elements with `.pfah-close` will close current popup.
     * Use `.pfah-close-delay` on `<a>` if you decide to download then close popup.
 
@@ -131,10 +132,13 @@ PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback
 
 PFAH will log to `console` when following events happen to `.pfah-wrapper`:
 
-* __`pfah.vendor`__: a vendor of PFAH is loading to page with its name.
+* __`pfah.vendor`__: a vendor of PFAH is loading to page, with its name.
 * __`pfah.notpardot`__: a form `action` was not a proper Pardot iframe embed link.
-* __`pfah.submit`__: a form was submitted to Pardot with `.pfah-wrapper` __id__.
-* __`pfah.callback`__: received result from Pardot with `.pfah-wrapper` __id__ and "__done__/__error__" as extra parameters.
+* __`pfah.ready`__: a form is ready to use, with `.pfah-wrapper` __id__.
+* __`pfah.submit`__: a form was submitted to Pardot, with `.pfah-wrapper` __id__.
+* __`pfah.callback`__: received result from Pardot, with `.pfah-wrapper` __id__ and "__done__/__error__" state.
+* __`pfah.popup__`: a popup is triggered by user, with `.pfah-wrapper` __id__ and "__open__/__close__" state.
+* __`pfah.callpopup`: manually trigger on an element to ask PFAH show popup.
 
 ### Layout
 
@@ -189,6 +193,13 @@ Different forms can use their own themes even they are on the same page.
 * HTML linter: [htmllint](https://github.com/htmllint/htmllint)
 
 ### Change logs
+
+__build 180709__
+
+* event: ready/popup/callpopup
+* demo: css/popup
+
+---
 
 __build 180629__
 
