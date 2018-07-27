@@ -1,2 +1,2 @@
-demo/* linguist-detectable=true
-dist/* linguist-detectable=true
+demo/* linguist-documentation=false
+dist/* linguist-vendored=false
