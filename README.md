@@ -1,6 +1,10 @@
 # Pardot Form AJAX Handler
 
-"Pardot Form AJAX Handler", or "PFAH" in short, will help to you setup an `AJAX` submission for Salesforce [Pardot](https://www.pardot.com/) forms, which were designed to submit with `POST` in `iframe`. With `JSONP`, we can even handle the result from Pardot's redirect.
+"Pardot Form AJAX Handler", or "PFAH" in short,
+will help to you setup an `AJAX` submission
+for Salesforce [Pardot](https://www.pardot.com/) forms,
+which were designed to submit with `POST` in `iframe`. With `JSONP`,
+we can even handle the result from Pardot's redirect.
 
 ## Install
 
@@ -11,13 +15,14 @@
 
 1. Add main script __after jQuery__ is introduced.
     * e.g., `<script src="//sample.com/pfah/pardot-form.js"></script>`
-2. Go to [Pardot](https://pi.pardot.com/form) and edit success/error location of the form.
+1. Go to [Pardot](https://pi.pardot.com/form) and edit success/error location of the form.
     * set "Success Location" as `//sample.com/pfah/pardot-form-callback-done.js`.
     * set "Error Location" as `//sample.com/pfah/pardot-form-callback-error.js`.
 
 ## Basic Usage
 
-Once you've wrapped `.pfah-form` with `.pfah-wrapper`, you are _good to go_!  
+Once you've wrapped `.pfah-form` with `.pfah-wrapper`,
+you are _good to go_!
 `.pfah-done` or `.pfah-error` are shown when the result comes back from Pardot.
 
 ### Template
@@ -59,27 +64,27 @@ For more examples, please check `demo` folder.
 Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`.
 
 * __`data-state="done"`__: PFAH will save "done/error" state into `localStorage` with `.pfah-wrapper` ID.
-  + This attribute can be either "__done__", "__error__" or "__all__".
-  + With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
+  * This attribute can be either "__done__", "__error__" or "__all__".
+  * With form states, PFAH will show `.pfah-done` or/and `.pfah-error` next time when user visit the page.
 * __`data-source="source"`__: PFAH will add a `[type="hidden"]` to pass current url to Pardot for tracking purpose.
-  + This attribute can be customized according to your choice, but we suggest to use "__source__" or "__referrer__".
-  + You have to add `source` or your customized field to Pardot form to make it work.
-  + You have to make sure you haven't use the same name somewhere else in form.
+  * This attribute can be customized according to your choice, but we suggest to use "__source__" or "__referrer__".
+  * You have to add `source` or your customized field to Pardot form to make it work.
+  * You have to make sure you haven't use the same name somewhere else in form.
 * __`data-style="no"`__: Use this option to complete disable the style of PFAH by not load css file at all.
-  + You can use this option if you decide to import css file by yourself.
-  + This option will disable theme as well.
+  * You can use this option if you decide to import css file by yourself.
+  * This option will disable theme as well.
 * __`data-error="keep"`__: Use this option to reserve the space for error message.
-  + By default, PFAH will slide down the error message.
+  * By default, PFAH will slide down the error message.
 * __`data-remember="no"`__: Use this option to disable input auto-complete function.
-  + By default, PFAH will keep value you input in `localStorage` with same name.
+  * By default, PFAH will keep value you input in `localStorage` with same name.
 
 ### Popup
 
 1. Wrap your `.pfah-wrapper` in `.pfah-popup`.
-2. Name your `.pfah-popup` with class or ID
+1. Name your `.pfah-popup` with class or ID
     * e.g., `#my-form`.
     * Please __DO NOT__ name it with prefix of `pfah-`
-3. Toggle popup with any element with `data-toggle="pfah-popup"`
+1. Toggle popup with any element with `data-toggle="pfah-popup"`
     * Use `data-target` to link the element with PFAH
     * You can manually toggle popup if `click` event is blocked.
     * Clicking on any elements with `.pfah-close` will close current popup.
@@ -112,19 +117,17 @@ With `.pfah-check-required`, PFAH will show "error" state if those checkboxes we
 ### Functions
 
 * __`pfah.init()`__: PFAH will initialize automatically when `DOM` is ready. However you can manually perform it if forms are loaded into page asynchronously.
-  + Load default form style (and extra theme).
-  + Check form action url.
-  + Generate ID.
-  + Show stored state.
-  + Load vendor js if there is a form shown in popup.
-
+  * Load default form style (and extra theme).
+  * Check form action url.
+  * Generate ID.
+  * Show stored state.
+  * Load vendor js if there is a form shown in popup.
 * __`pfah.callback({ result: state })`__: PFAH will callback from `pardot-form-callback-done.js` and `pardot-form-callback-error.js` automatically after a form is submitted. However you can manually if you want to simulate the form result.
-  + Trigger callback events.
-  + `state` can be "__done__" or "__error__".
-  + `pfah.form.id` needs to be indicated before your call.
-
+  * Trigger callback events.
+  * `state` can be "__done__" or "__error__".
+  * `pfah.form.id` needs to be indicated before your call.
 * __`pfah.popup(target)`__: If your `click` event is blocked on element, you can try to call it manually.
-  + Trigger call popup event.
+  * Trigger call popup event.
 
 ### Events
 
@@ -136,7 +139,7 @@ PFAH will log to `console` when some of following events happen to `.pfah-wrappe
 * __`pfah.submit`__: A form was submitted to Pardot, with `.pfah-wrapper` __id__.
 * __`pfah.callback`__: Received result from Pardot, with `.pfah-wrapper` __id__ and "__done__/__error__" result.
 * __`pfah.popup`__: A popup is triggered by user, with `.pfah-wrapper` __id__ and "__open__/__close__" state.
-* __`pfah.callpopup`__: Ask PFAH show popup.
+* __`pfah.callpopup`__: PFAH is asked to show popup.
 
 ### Layout
 
@@ -178,8 +181,13 @@ Different forms can use their own themes even they are on the same page.
 
 1. upload `pardot-form-mytheme.css` to same folder you put PFAH.
     * e.g., `//sample.com/pfah/pardot-form-mytheme.css`
-2. add `data-theme="mytheme"` to `.pfah-wrapper`.
+1. add `data-theme="mytheme"` to `.pfah-wrapper`.
     * Make sure your theme name is in lower case.
+
+### Issues
+
+PFAH may fail with IE and other async script presents,
+due to current path detect mechanism.
 
 ## More
 
@@ -191,7 +199,7 @@ Different forms can use their own themes even they are on the same page.
 ### Tools
 
 * Dependency: [jQuery](https://github.com/jquery/jquery)
-* Vendor: [bPopup](https://github.com/dinbror/bpopup)
+* Vendor: [bPopup](https://github.com/dinbror/bpopup), [jquery-throttle-debounce](https://github.com/cowboy/jquery-throttle-debounce), [get-current-path](https://github.com/horans/get-current-path)
 * JS linter: [standard](https://github.com/standard/standard)
 * CSS linter: [CSSLint](https://github.com/CSSLint/csslint)
 * HTML linter: [htmllint](https://github.com/htmllint/htmllint)
@@ -200,8 +208,8 @@ Different forms can use their own themes even they are on the same page.
 
 __build 180709__
 
-* event: ready/popup/callpopup
-* demo: css/popup
+* samples: css/popup
+* events: ready/popup
 
 ---
 

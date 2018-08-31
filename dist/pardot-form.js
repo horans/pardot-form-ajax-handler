@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170709                                   *
+*  update: 170831                                   *
 ****************************************************/
 
 /* global $ */
@@ -12,10 +12,19 @@
 var pfah = {}
 
 // get script path
-// stackoverflow.com/questions/2255689/
-var pScripts = document.getElementsByTagName('script')
-pfah.src = pScripts[pScripts.length - 1].src
-pfah.path = pfah.src.substring(0, pfah.src.lastIndexOf('/') + 1)
+pfah.gcp = function () {
+  var cs = document.currentScript
+  var cl
+  if (cs) {
+    cl = cs.src
+  } else {
+    var ss = document.getElementsByTagName('script')
+    cs = ss[ss.length - 1]
+    cl = cs.getAttribute.length !== undefined ? cs.src : cs.getAttribute('src', -1)
+  }
+  return cl.substring(0, cl.lastIndexOf('/') + 1)
+}
+pfah.path = pfah.gcp()
 
 // load asset
 pfah.asset = function (type, asset) {
