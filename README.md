@@ -176,18 +176,13 @@ PFAH will log to `console` when some of following events happen to `.pfah-wrappe
 
 ### Themes
 
-PFAH allow you to override default style by adding your own `css` file.  
+PFAH allow you to override default style by adding your own `css` file.
 Different forms can use their own themes even they are on the same page.
 
 1. upload `pardot-form-mytheme.css` to same folder you put PFAH.
     * e.g., `//sample.com/pfah/pardot-form-mytheme.css`
 1. add `data-theme="mytheme"` to `.pfah-wrapper`.
     * Make sure your theme name is in lower case.
-
-### Issues
-
-PFAH may fail with IE and other async script presents,
-due to current path detect mechanism.
 
 ## More
 
@@ -206,64 +201,52 @@ due to current path detect mechanism.
 
 ### Change logs
 
-__build 180709__
+__180903__
+
+* path detect fallback
+
+__180709__
 
 * samples: css/popup
 * events: ready/popup
 
----
-
-__build 180629__
+__180629__
 
 * debouce input
 * more samples
-
----
 
 __build 180626__
 
 * allow same forms
 * allow remember input
 
----
-
-__build 180620__
+__180620__
 
 * allow close popup
 
----
-
-__build 180619__
+__180619__
 
 * allow required checkbox
 * allow text center
 
----
-
-__build 180616__
+__180616__
 
 * add icons
 * add demo
 * allow popup
 * allow half row column
 
----
-
-__build 180613__
+__180613__
 
 * update basic style
 * allow keep error message
 
----
-
-__build 180608__
+__180608__
 
 * allow source track
 * allow style disable
 * unify init function
 
----
-
-__build 180607__
+__180607__
 
 * initial release

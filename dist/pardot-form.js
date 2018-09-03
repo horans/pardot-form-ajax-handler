@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170831                                   *
+*  update: 170903                                   *
 ****************************************************/
 
 /* global $ */
@@ -12,19 +12,19 @@
 var pfah = {}
 
 // get script path
-pfah.gcp = function () {
+pfah.gcp = function (name) {
   var cs = document.currentScript
   var cl
   if (cs) {
     cl = cs.src
   } else {
-    var ss = document.getElementsByTagName('script')
+    var ss = document.querySelectorAll('script[src' + (name ? ('*="' + name + '"') : '') + ']')
     cs = ss[ss.length - 1]
-    cl = cs.getAttribute.length !== undefined ? cs.src : cs.getAttribute('src', -1)
+    cl = cs.getAttribute.length === undefined ? cs.getAttribute('src', -1) : cs.src
   }
   return cl.substring(0, cl.lastIndexOf('/') + 1)
 }
-pfah.path = pfah.gcp()
+pfah.path = pfah.gcp('pardot-form.js')
 
 // load asset
 pfah.asset = function (type, asset) {
@@ -33,7 +33,7 @@ pfah.asset = function (type, asset) {
     var a = document.createElement(type === 'vendor' ? 'script' : 'link')
     a.id = type + '-' + asset
     if (type === 'vendor') {
-      a.src = pfah.path + 'vendor/' + asset + '.min.js'
+      a.src = pfah.path + 'vendor/' + asset + '.js'
     } else {
       a.rel = 'stylesheet'
       a.href = pfah.path + 'pardot-form' + (asset === 'pfah' ? '' : ('-' + asset)) + '.css'
@@ -56,6 +56,7 @@ pfah.remember = function () {
 
 // initialize
 pfah.init = function () {
+  pfah.asset('vendor', 'get-current-path')
   if ($('.pfah-wrapper').length > 0) {
     var n = $('.pfah-wrapper:last').data('style') === 'no'
     // default style
@@ -90,9 +91,9 @@ pfah.init = function () {
     })
   }
   // popup
-  if ($('.pfah-popup').length > 0) pfah.asset('vendor', 'jquery.bpopup')
+  if ($('.pfah-popup').length > 0) pfah.asset('vendor', 'jquery.bpopup.min')
   // debounce
-  if ($('.pfah-wrapper[data-remember="no"]').length < $('.pfah-wrapper').length) pfah.asset('vendor', 'jquery.ba-throttle-debounce')
+  if ($('.pfah-wrapper[data-remember="no"]').length < $('.pfah-wrapper').length) pfah.asset('vendor', 'jquery.ba-throttle-debounce.min')
   // set value
   pfah.remember()
 }
