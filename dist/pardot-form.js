@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 170903                                   *
+*  update: 190122                                   *
 ****************************************************/
 
 /* global $ */
@@ -148,8 +148,8 @@ $(function () {
 
   // callback handler
   $('body').on('pfah.callback', function (e, id, result) {
-    var s = $('[data-id="' + id + '"]').data('state').toLowerCase()
-    if (s && (result === s || s === 'all')) window.localStorage.setItem(pfah.form.id, result)
+    var s = $('[data-id="' + id + '"]').data('state')
+    if (s && (s.toLowerCase() === result || s.toLowerCase() === 'all')) window.localStorage.setItem(pfah.form.id, result)
     $('[data-id="' + pfah.form.id + '"]').removeClass('pfah-result-error pfah-result-done').addClass('pfah-result-' + result)
       .find('[type="submit"]').removeAttr('disabled')
     pfah.form.id = ''
