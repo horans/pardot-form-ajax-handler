@@ -3,7 +3,7 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 190122                                   *
+*  update: 190605                                   *
 ****************************************************/
 
 /* global $ */
@@ -56,7 +56,6 @@ pfah.remember = function () {
 
 // initialize
 pfah.init = function () {
-  pfah.asset('vendor', 'get-current-path')
   if ($('.pfah-wrapper').length > 0) {
     var n = $('.pfah-wrapper:last').data('style') === 'no'
     // default style
