@@ -77,6 +77,8 @@ Extra configuration can pass to PFAH by add `data` properties to `.pfah-wrapper`
   * By default, PFAH will slide down the error message.
 * __`data-remember="no"`__: Use this option to disable input auto-complete function.
   * By default, PFAH will keep value you input in `localStorage` with same name.
+* __`data-recaptcha="your_site_key"`__: Use this option to add reCAPTCHA v2 checkbox to your form.
+  * You need to generate your own site key from Google [reCAPTCHA](https://developers.google.com/recaptcha/) service.
 
 ### Popup
 
@@ -200,6 +202,10 @@ Different forms can use their own themes even they are on the same page.
 * HTML linter: [htmllint](https://github.com/htmllint/htmllint)
 
 ### Change logs
+
+__190911__
+
+* allow reCAPTCHA
 
 __180903__
 

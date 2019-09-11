@@ -3,10 +3,10 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 190605                                   *
+*  update: 190911                                   *
 ****************************************************/
 
-/* global $ */
+/* global $ grecaptcha */
 
 // namespace
 var pfah = {}
@@ -54,6 +54,13 @@ pfah.remember = function () {
   })
 }
 
+// recaptcha
+pfah.recaptcha = {
+  active: false,
+  load: false,
+  check: ''
+}
+
 // initialize
 pfah.init = function () {
   if ($('.pfah-wrapper').length > 0) {
@@ -87,7 +94,17 @@ pfah.init = function () {
         if (l) $(this).addClass('pfah-result-' + l)
         $(this).trigger('pfah.ready', $(this).attr('data-id'))
       }
+      // add recaptcha
+      if ($(this).data('recaptcha')) {
+        $(this).find('[type="submit"]').before('<div class="g-recaptcha" data-sitekey="' + $(this).data('recaptcha') + '"></div>')
+        pfah.recaptcha.active = true
+      }
     })
+    // load recaptcha
+    if (pfah.recaptcha.active && !pfah.recaptcha.load) {
+      $.getScript('https://www.google.com/recaptcha/api.js')
+      pfah.recaptcha.load = true
+    }
   }
   // popup
   if ($('.pfah-popup').length > 0) pfah.asset('vendor', 'jquery.bpopup.min')
@@ -122,7 +139,11 @@ $(function () {
   // submit form
   $('body').on('submit', '.pfah-wrapper', function (e) {
     e.preventDefault()
-    if (!pfah.form.load) {
+    if ($(this).data('recaptcha')) {
+      pfah.recaptcha.check = grecaptcha.getResponse()
+    }
+    if (!pfah.form.load && ($(this).data('recaptcha') ? pfah.recaptcha.check : true)) {
+      pfah.recaptcha.check = ''
       pfah.form.id = $(this).data('id')
       // check required checkbox
       var c = $(this).find('.pfah-check-required')
