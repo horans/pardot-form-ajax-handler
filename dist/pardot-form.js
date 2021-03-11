@@ -3,10 +3,11 @@
 *  description: main script                         *
 *  author: horans@gmail.com                         *
 *  url: github.com/horans/pardot-form-ajax-handler  *
-*  update: 190911                                   *
+*  update: 210311                                   *
 ****************************************************/
 
 /* global $ grecaptcha */
+/* eslint no-var: 0 */
 
 // namespace
 var pfah = {}

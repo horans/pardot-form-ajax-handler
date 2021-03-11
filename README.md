@@ -203,56 +203,46 @@ Different forms can use their own themes even they are on the same page.
 
 ### Change logs
 
-__190911__
+```text
+190911
++ allow reCAPTCHA
 
-* allow reCAPTCHA
+180903
+# path detect fallback
 
-__180903__
+180709
++ samples: css/popup
++ events: ready/popup
 
-* path detect fallback
+180629
+# debouce input
++ more samples
 
-__180709__
+180626
++ allow same forms
++ allow remember input
 
-* samples: css/popup
-* events: ready/popup
+180620
++ allow close popup
 
-__180629__
+180619
++ allow required checkbox
++ allow text center
 
-* debouce input
-* more samples
+180616
++ add icons
++ add demo
++ allow popup
++ allow half row column
 
-__build 180626__
+180613
+# update basic style
++ allow keep error message
 
-* allow same forms
-* allow remember input
+180608
++ allow source track
++ allow style disable
+# unify init function
 
-__180620__
-
-* allow close popup
-
-__180619__
-
-* allow required checkbox
-* allow text center
-
-__180616__
-
-* add icons
-* add demo
-* allow popup
-* allow half row column
-
-__180613__
-
-* update basic style
-* allow keep error message
-
-__180608__
-
-* allow source track
-* allow style disable
-* unify init function
-
-__180607__
-
-* initial release
+180607
++ initial release
